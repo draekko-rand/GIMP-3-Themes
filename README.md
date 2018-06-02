@@ -1,4 +1,4 @@
-# GIMP-3-Themes
+# GIMP 3 Themes
 
 
 ## Screenshots
