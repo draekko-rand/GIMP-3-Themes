@@ -1,0 +1,1482 @@
+/**********************************/
+/* GIMP dark theme css file       */
+/* Copyright 2018, Ben Touchette  */
+/**********************************/
+
+/**********/
+/* COLORS */
+/**********/
+@define-color bg_color rgba(72, 72, 72, 0.999);
+@define-color fg_color #efefef;
+@define-color bg_view_color #303030;
+@define-color border_color #ebebeb;
+@define-color fg_color_hover rgba(120, 120, 120, 127);
+@define-color fg_header_color #b6bcc6;
+@define-color bg_hover_color rgba(20, 20, 20, 0.8);
+@define-color entry_focus_bg #000000;
+@define-color entry_focus_border_color #2b2b2b;
+@define-color entry_focus_progress_color #2b2b2b;
+@define-color base_color #ffffff;
+@define-color text_color #3C3C3C;
+@define-color selected_bg_color #353535;
+@define-color selected_fg_color #e2e2e2;
+@define-color tooltip_bg_color #000000;
+@define-color tooltip_fg_color #ffffff;
+
+/*******/
+/* ALL */
+/*******/
+* {
+    -gtk-icon-style:symbolic;
+    -GimpDockWindow-default-height:300;
+    -GimpMenuDock-minimal-width:200;
+    -GimpDockWindow-menu-preview-size:button;
+    -GimpToolPalette-tool-icon-size:button;
+    -GimpToolPalette-button-relief:none;
+    -GimpDockbook-tab-icon-size:button;
+    -GimpColorNotebook-tab-icon-size:button;
+    -GimpDeviceEditor-handle-size:10;
+    -GimpDockable-content-border:2;
+    -GimpEditor-content-spacing:2;
+    -GimpEditor-button-spacing:2;
+    -GimpEditor-button-icon-size:menu;
+    -GimpDataEditor-minimal-height:96;
+    -GtkDialog-content-area-border:0;
+    -GtkDialog-button-spacing:6;
+    -GtkDialog-action-area-border:10;
+    -GimpUnitComboBox-appears-as-list:0;
+    -GtkToolButton-icon-spacing:2;
+    -GtkTextView-error-underline-color:#FD5239;
+    -GtkScrolledWindow-scrollbar-spacing:0;
+    -GtkToolItemGroup-expander-size:11;
+    -GtkWidget-text-handle-width:20;
+    -GtkWidget-text-handle-height:20;
+    -GtkDialog-button-spacing:2;
+    -GtkDialog-action-area-border:0;
+    -gtk-outline-radius:2px;
+    background-clip:padding-box;
+    outline-color: alpha(currentColor,0.3);
+    outline-color: transparent;
+    outline-style: dashed;
+    outline-offset: -3px;
+    outline-width: 1px;
+    border-color: alpha(black, 0.5);
+}
+GimpToolDialog {
+    -GtkDialog-action-area-border:4;
+}
+GimpColorNotebook tab {
+    padding:0 0 0 0;
+}
+GimpColorScales spinbutton button {
+    padding:0 0 0 0;
+}
+GimpColorScales spinbutton entry {
+    min-height:0;
+}
+GimpDock {
+    font-size:smaller;
+}
+GimpDock notebook tab {
+    padding:0 0 0 0;
+}
+GimpDock spinbutton button {
+    padding:0 0 0 0;
+}
+GimpDock spinbutton entry {
+    min-height:0;
+}
+GimpDockable {
+    -GimpFrame-label-bold:0;
+    -GimpFrame-label-spacing:2;
+}
+GimpDisplayShell grid>button {
+    min-height:0;
+    min-width:0;
+    padding:0 0 0 0;
+}
+GimpDisplayShell statusbar {
+    min-height:3em;
+}
+GimpDisplayShell combobox entry {
+    font-size:smaller;
+}
+GimpDisplayShell combobox button {
+    font-size:smaller;
+}
+GimpDisplayShell progressbar text {
+    font-size:larger;
+}
+GimpDisplayShell progressbar trough, GimpDisplayShell progressbar progress {
+    min-height:1em;
+}
+GimpRuler {
+    font-size:smaller;
+}
+entry.italic {
+    font-style:italic;
+}
+headerbar,
+.titlebar:not(headerar) {
+  box-shadow: none;
+}
+grid,
+.grid {
+    color:white;
+    background-color: @bg_color;
+}
+.background {
+    color:@fg_color;
+    background-color:@bg_color;
+}
+*:disabled {
+    -gtk-icon-effect:dim;
+}
+.view, .view text, iconview, iconview text, textview text {
+    color:@fg_color;
+    background-color:@bg_view_color;
+}
+.view:selected, iconview:selected, .view:selected:focus, iconview:selected:focus, .view text:selected, iconview text:selected, textview text:selected, .view text:selected:focus, iconview text:selected:focus, textview text:selected:focus {
+    border-radius:2px;
+}
+/*********/
+/* ENTRY */
+/*********/
+entry {
+    min-height:22px;
+    border:1px solid;
+    padding:2px 8px;
+    caret-color:currentColor;
+    border-radius:0;
+    transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    color:@fg_color;
+    border-color:#484848;
+    background-color: alpha(black, 0.8);
+    background-image: none;
+    border: 0;
+    border-radius: 0;
+}
+entry:focus,
+entry:active {
+    background-clip:border-box;
+    color:@fg_color;
+    border-radius: 0;
+    background-color: alpha(black, 0.87);
+    border: 0;
+    border-color: transparent;
+    box-shadow:inset 1px 0 #e27242, inset -1px 0 #e27242, inset 0 1px #e27242, inset 0 -1px #e27242;
+}
+entry:disabled {
+    color:rgba(221, 221, 221, 0.45);
+    border-color:rgba(43, 43, 43, 0.55);
+    background-color:rgba(68, 68, 68, 0.55);
+    border-radius: 0;
+}
+entry selection {
+    background-color:rgba(255, 255, 255, 0.8);
+    color:rgba(25, 25, 25, 0.9);
+    border-radius: 0;
+}
+entry selection:disabled,
+entry selection:backdrop:disabled {
+    background-color:rgba(255, 25, 25, 0.8);
+}
+entry progress {
+    margin:0 -7px;
+    border-radius:0;
+    border-width:0 0 2px;
+    border-color:#777;
+    border-style:solid;
+    background-image: none;
+    background-color:#777;
+    box-shadow: none;
+}
+entry:disabled progress {
+    margin:0 -7px;
+    border-radius:0;
+    border-width:0 0 2px;
+    border-color:rgba(31, 31, 31, 27);
+    border-style:solid;
+    background-image: none;
+    background-color:rgba(31, 31, 31, 27);
+    box-shadow: none;
+}
+/************/
+/* TREEVIEW */
+/************/
+treeview.view {
+    padding: 2px;
+}
+treeview.view:hover {
+    background-color:#222222;
+}
+treeview.view:selected {
+    background-color:#222222;
+}
+treeview.view.expander {
+    -gtk-icon-source:-gtk-icontheme("pan-end-symbolic");
+    color:@fg_color;
+}
+treeview.view.expander:hover {
+    color:@fg_color_hover;
+}
+treeview.view.expander:selected {
+    color:@fg_color;
+}
+treeview.view.expander:selected:hover {
+    color:@fg_color_hover;
+}
+treeview.view.expander:checked {
+    -gtk-icon-source:-gtk-icontheme("pan-down-symbolic");
+}
+treeview.view:disabled {
+    color:rgba(250, 250, 250, 0.5);
+}
+treeview.view header {
+    border: 1px solid;
+    border-color: @bg_color;
+    margin: 0;
+    padding: 0;
+}
+treeview.view header button {
+    min-height:1px;
+    min-width:1px;
+    padding:3px 6px;
+    margin-left: 0px;
+    margin-right: 2px;
+    font-weight:bold;
+    color:@fg_header_color;
+    background-color:@bg_color;
+    border-style:none solid none none;
+    border-radius:0;
+    border-image:  linear-gradient(to bottom, @bg_color 20%, rgba(255, 255, 255, 0.6) 20%, rgba(255, 255, 255, 0.6) 80%, @bg_color 80%) 0 1 0 0/0 1px 0 0 stretch;
+    box-shadow: none;
+}
+treeview.view header button:nth-child(last) {
+    min-height:1px;
+    min-width:1px;
+    padding:3px 6px;
+    margin-left: 0px;
+    margin-right: 2px;
+    font-weight:bold;
+    color:@fg_header_color;
+    background-color:@bg_color;
+    border-style:none solid none none;
+    border-radius: 0;
+    border-color: transparent;
+    border-image: none;
+    box-shadow: none;
+}
+/*************/
+/* SCROLLBAR */
+/*************/
+scrollbar {
+    background-color: #222;
+    transition: 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+scrollbar.top {
+    border-bottom: 1px solid #111;
+}
+scrollbar.bottom {
+    border-top: 1px solid #111;
+}
+scrollbar.left {
+    border-right: 1px solid #111;
+}
+scrollbar.right {
+    border-left: 1px solid #111;
+}
+scrollbar:backdrop {
+    background-color: #333;
+    border-color: #222;
+    transition: 200ms ease-out;
+}
+scrollbar slider {
+    min-width: 14px;
+    min-height: 14px;
+    border: 3px solid transparent;
+    border-radius: 9px;
+    background-color: #7a7a7a;
+}
+scrollbar slider:hover {
+    background-color: #8a8a8a;
+}
+scrollbar slider:hover:active {
+    background-color: #8a8a8a;
+}
+scrollbar slider:disabled {
+    background-color: transparent;
+}
+/******************/
+/* MENU ITEMS BAR */
+/******************/
+menubar, .menubar {
+    -GtkWidget-window-dragging:true;
+    padding:0px;
+    background-color:@bg_color;
+    color:@fg_color;
+    background-image: none;
+    border-image: none;
+    background-image: none;
+}
+menubar:backdrop,
+.menubar:backdrop {
+    background-color: rgba(250, 250, 250, 0.5);
+}
+menubar > menuitem,
+.menubar > menuitem {
+    padding:4px 8px;
+    border:solid transparent;
+    border:0;
+    background-image: none;
+    border-image: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+menubar > menuitem:hover,
+.menubar > menuitem:hover {
+    background-color:#222222;
+    color:@fg_color;
+    border: 0;
+    border-radius: 0;
+    border-image: none;
+    background-image: none;
+    box-shadow: none;
+}
+menubar > menuitem:disabled,
+.menubar > .menuitem:disabled {
+    color:rgba(207, 218, 231, 0.2);
+    border-color:transparent;
+    border: 0;
+    border-image: none;
+    background-image: none;
+    box-shadow: none;
+}
+menubar > menuitem:active,
+.menubar > .menuitem:active {
+    border-color:transparent;
+    border: 0;
+    border-image: none;
+    background-image: none;
+    box-shadow: none;
+}
+menubar > menuitem:checked,
+.menubar > .menuitem:checked {
+    border-color:transparent;
+    border: 0;
+    border-image: none;
+    background-image: none;
+    box-shadow: none;
+}
+menu,
+.menu {
+    margin:4px;
+    padding:0;
+    border-radius:0;
+    background-color:@bg_color;
+    background-image: none;
+    text-shadow: none;
+    border: 0;
+}
+menu separator, .menu separator {
+    margin:2px 0;
+    background-color:#333;
+    box-shadow: none;
+    border: 0;
+}
+menu .separator:not(label), .menu .separator:not(label) {
+    color:#333;
+}
+menu menuitem, .menu menuitem {
+    min-height:16px;
+    min-width:40px;
+    padding:5px;
+    background-image: none;
+    text-shadow: none;
+    border: 0;
+}
+menu menuitem:hover, .menu menuitem:hover {
+    color:@fg_color;
+    background-color:#272727;
+    text-shadow: none;
+    background-image: none;
+    border: 0;
+}
+menu menuitem:disabled, .menu menuitem:disabled {
+    color:rgba(211, 211, 211, 0.45);
+    text-shadow: none;
+    border: 0;
+}
+menu menuitem arrow, .menu menuitem arrow {
+    min-height:16px;
+    min-width:16px;
+    -gtk-icon-source:-gtk-icontheme("pan-end-symbolic");
+    margin-left:10px;
+}
+menuitem accelerator {
+    color:alpha(currentColor,0.55);
+}
+menuitem check, menuitem radio {
+    min-height:16px;
+    min-width:16px;
+    margin-right:6px;
+    margin-left:2px;
+    background-image: none;
+    outline-color: transparent;
+}
+menu button:hover,
+menu button:checked,
+menu button:checked:disabled,
+menu button:disabled,
+menu button {
+    background-image: none;
+}
+/*****************/
+/* CHECK BUTTONS */
+/*****************/
+.check, check {
+    -gtk-icon-source:-gtk-scaled(url("assets/checkbox-unchecked-dark.png"), url("assets/checkbox-un checked-dark@2.png"));
+    background-image: none;
+    outline-color: transparent;
+    border-image: none;
+    border: 1px solid #222;
+    box-shadow: none;
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+    transition: none;
+}
+.check:active, check:active {
+    background-image: none;
+    outline-color: transparent;
+    border-image: none;
+    border: 1px solid #222;
+    box-shadow: none;
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+    transition: none;
+}
+.check:checked, check:checked {
+    -gtk-icon-source:-gtk-scaled(url("assets/checkbox-checked-dark.png"), url("assets/checkbox-checked-dark@2.png"));
+    background-image: none;
+    outline-color: transparent;
+    border-image: none;
+    border: 1px solid #222;
+    box-shadow: none;
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+    transition: none;
+}
+.check:disabled, check:disabled {
+    -gtk-icon-source:-gtk-scaled(url("assets/checkbox-unchecked-insensitive-dark.png"), url("assets/checkbox-unchecked-insensitive-dark@2.png"));
+    background-image: none;
+    outline-color: transparent;
+    border-image: none;
+    border: 1px solid #222;
+    box-shadow: none;
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+    transition: none;
+}
+checkbutton {
+    border: 1px solid;
+    border-radius: 3px;
+    padding: 1px 4px 1px 4px;
+    border-color: transparent;
+}/*****************/
+/* RADIO BUTTONS */
+/*****************/
+.radio, radio {
+    -gtk-icon-source:-gtk-scaled(url("assets/radio-unchecked-dark.png"), url("assets/radio-unchecked-dark@2.png"));
+    background-image: none;
+    outline-color: transparent;
+    border: 1px solid transparent;
+    box-shadow: none;
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+}
+.radio:active, radio:active {
+    background-image: none;
+    outline-color: transparent;
+    border-image: none;
+    border: 1px solid transparent;
+    box-shadow: none;
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+}
+.radio:checked, radio:checked {
+    -gtk-icon-source:-gtk-scaled(url("assets/radio-checked-dark.png"), url("assets/radio-checked-dark@2.png"));
+    background-image: none;
+    outline-color: transparent;
+    border: 1px solid transparent;
+    box-shadow: none;
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+}
+.radio:disabled, radio:disabled {
+    -gtk-icon-source:-gtk-scaled(url("assets/radio-unchecked-insensitive-dark.png"), url("assets/radio-unchecked-insensitive-dark@2.png"));
+    background-image: none;
+    outline-color: transparent;
+    border: 1px solid transparent;
+    box-shadow: none;
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+}
+radiobutton {
+    border: 1px solid;
+    border-radius: 3px;
+    padding: 1px 4px 1px 4px;
+    border-color: transparent;
+}
+/*************/
+/* SEPARATOR */
+/*************/
+separator.wide {
+    min-width:4px;
+    min-height:4px;
+    background-color:rgba(150,150,150,0.1);
+    background-image:linear-gradient(to bottom, rgba(150,150,150,0.05), rgba(150,150,150,0.05)), linear-gradient(to bottom, rgba(150,150,150,0.05), rgba(150,150,150,0.05));
+    background-size:1px 1px, 1px 1px;
+    box-shadow: none;
+    border: 0;
+}
+separator.wide:hover {
+    background-color:rgba(200,200,200,0.1);
+    background-image:linear-gradient(to bottom, rgba(200,200,200,0.05), rgba(200,200,200,0.05)), linear-gradient(to bottom, rgba(200,200,200,0.05), rgba(200,200,200,0.05));
+    box-shadow: none;
+    border: 0;
+}
+/***********/
+/* BUTTONS */
+/***********/
+button {
+    min-height:22px;
+    min-width:20px;
+    transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border:1px solid;
+    border-radius:3px;
+    padding:4px 6px;
+    color: alpha(@fg_color, 0.9);
+    border-color:rgba(0,0,0, 0.5);
+    background-color:#303030;
+    background-image: none;
+    border-image: none;
+    box-shadow: none;
+}
+button:hover {
+    min-height:22px;
+    min-width:20px;
+    padding:4px 6px;
+    transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border:1px solid;
+    border-radius:3px;
+    color:@fg_color;
+    border-color:rgba(0,0,0, 0.5);
+    background-color:#404040;
+    background-image: none;
+    border-image: none;
+    box-shadow: none;
+}
+button:disabled {
+    min-height:22px;
+    min-width:20px;
+    transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border:1px solid;
+    border-radius:3px;
+    padding:4px 6px;
+    color: alpha(@fg_color, 0.3);
+    border-color:rgba(0,0,0, 0.5);
+    background-color:#373737;
+    background-image: none;
+    border-image: none;
+    box-shadow: none;
+}
+button:active, button:checked {
+    min-height:22px;
+    min-width:20px;
+    transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border:1px solid;
+    border-radius:3px;
+    padding:4px 6px;
+    color: alpha(@fg_color, 0.9);
+    border-color:rgba(0,0,0, 0.5);
+    background-color:#606060;
+    background-image: none;
+    border-image: none;
+    box-shadow: none;
+}
+button.suggested-action:not(:disabled) {
+    color:white;
+    background-color:#5D5;
+    background-image: none;
+    border-image: none;
+    box-shadow: none;
+}
+button.suggested-action:not(:disabled):hover {
+    background-color:#6E6;
+    background-image: none;
+    border-image: none;
+    box-shadow: none;
+}
+button.destructive-action:not(:disabled) {
+    color:white;
+    background-color:#D55;
+    background-image: none;
+    border-image: none;
+    box-shadow: none;
+}
+button.destructive-action:not(:disabled):hover {
+    background-color:#E66;
+    background-image: none;
+    border-image: none;
+    box-shadow: none;
+}
+/************/
+/* NOTEBOOK */
+/************/
+notebook {
+    padding:0;
+    border:0;
+    background-color:@bg_color;
+}
+notebook > stack:not(:only-child) {
+    background-color:@bg_color;
+    border: 1px solid;
+    border-color:@bg_color;
+}
+notebook > header {
+    border: 1px solid;
+    border-color: transparent;
+    background-color:@bg_color;
+    background-image: none;
+}
+notebook > header > tabs {
+    border:0;
+    padding:0;
+    background-color:rgba(25, 2, 5, 0.7);
+}
+notebook > header > tabs > tab  {
+    padding:0;
+    margin: 0;
+    border: 0;
+    border-right: 1px solid;
+    border-left: 1px solid;
+    border-top: 1px solid;
+    border-color:rgba(95, 95, 95, 0.4);
+    color: alpha(@fg_color, 0.5);
+    background-color: rgba(65, 65, 65, 0.5);
+    padding-left:3px;
+    padding-right:3px;
+    min-width:24px;
+    min-height:24px;
+    border-radius:0;
+    box-shadow: none;
+    outline-color: transparent;
+}
+notebook > header > tabs > tab:nth-child(last) {
+    padding:0;
+    margin: 0;
+    border: 0;
+    border-right: 1px solid;
+    border-left: 1px solid;
+    border-top: 1px solid;
+    border-color:rgba(95, 95, 95, 0.4);
+    color: alpha(@fg_color, 0.5);
+    background-color: rgba(65, 65, 65, 0.5);
+    padding-left:3px;
+    padding-right:3px;
+    min-width:24px;
+    min-height:24px;
+    border-radius:0;
+    box-shadow: none;
+    outline-color: transparent;
+}
+notebook > header > tabs > tab:hover {
+    color: alpha(@fg_color, 0.73);
+    background-color:rgba(65, 65, 65, 0.9);
+    border: 0;
+    border-right: 1px solid;
+    border-left: 1px solid;
+    border-top: 1px solid;
+    border-color:rgba(115, 115, 115, 0.7);
+    padding-left:3px;
+    padding-right:3px;
+    min-width:24px;
+    min-height:24px;
+    border-radius:0;
+    box-shadow: none;
+    outline-color: transparent;
+}
+notebook > header > tabs > tab:checked:hover,
+notebook > header > tabs > tab:active:hover {
+    color: alpha(@fg_color, 0.9);
+    border: 0;
+    border-right: 1px solid;
+    border-left: 1px solid;
+    border-top: 1px solid;
+    border-color:rgba(115, 115, 115, 0.9);
+    padding-left:3px;
+    padding-right:3px;
+    min-width:24px;
+    min-height:24px;
+    border-radius:0;
+    box-shadow: none;
+    outline-color: transparent;
+}
+notebook > header > tabs > tab:checked,
+notebook > header > tabs > tab:active {
+    color: alpha(@fg_color, 0.9);
+    border: 0;
+    border-right: 1px solid;
+    border-left: 1px solid;
+    border-top: 1px solid;
+    border-color:rgba(95, 95, 95, 0.9);
+    padding-left:3px;
+    padding-right:3px;
+    min-width:24px;
+    min-height:24px;
+    border-radius:0;
+    box-shadow: none;
+    outline-color: transparent;
+    background-color: @bg_color;
+}
+notebook entry {
+    background-image: none;
+    border: 0;
+    border-radius: 0;
+}
+notebook button {
+    min-height:22px;
+    min-width:20px;
+    transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border:1px solid;
+    border-radius:3px;
+    padding:4px 6px;
+    color: alpha(@fg_color, 0.9);
+    border-color:@bg_color;
+    background-color: @bg_color;
+    background-image: none;
+    border-image: none;
+    box-shadow: none;
+}
+notebook button:hover {
+    min-height:22px;
+    min-width:20px;
+    padding:4px 6px;
+    transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border:1px solid;
+    border-radius:3px;
+    color:@fg_color;
+    border-color: @bg_color;
+    background-color: rgba(50, 50, 50, 0.9);
+    background-image: none;
+    border-image: none;
+    box-shadow: none;
+}
+notebook button:disabled {
+    min-height:22px;
+    min-width:20px;
+    transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border:1px solid;
+    border-radius:3px;
+    padding:4px 6px;
+    color: alpha(@fg_color, 0.3);
+    border-color:@bg_color;
+    background-color: @bg_color;
+    background-image: none;
+    border-image: none;
+    box-shadow: none;
+}
+/*
+notebook button:checked {
+    min-height:20px;
+    min-width:20px;
+    padding:4px 6px;
+    border:1px solid;
+    border-color: @bg_color;
+    border-radius:3px;
+    margin: 0;
+    border-image: none;
+    color: @fg_color;
+    background-image: none;
+    background-color: rgba(50, 50, 50, 0.9);
+    box-shadow: none;
+    transition: none;
+}
+notebook button:checked:hover {
+    min-height:20px;
+    min-width:20px;
+    padding:4px 6px;
+    border:1px solid;
+    border-radius:3px;
+    margin: 0;
+    border-color:  transparent;
+    border-image: none;
+    color: @fg_color;
+    background-image: none;
+    background-color: rgba(60, 60, 60, 0.9);
+    box-shadow: none;
+    transition: none;
+}
+notebook button:disabled {
+    min-height:20px;
+    min-width:20px;
+    padding:4px 6px;
+    border:1px solid;
+    border-radius:3px;
+    border-color:  transparent;
+    border-radius: 2px;
+    color: alpha(@fg_color, 0.3);
+    background-color: transparent;
+    background-image: none;
+}
+notebook button:disabled:hover {
+    min-height:20px;
+    min-width:20px;
+    padding:4px 6px;
+    border:1px solid;
+    border-radius:3px;
+    border-color:  transparent;
+    border-radius: 2px;
+    color: alpha(@fg_color, 0.3);
+    background-color: transparent;
+    background-image: none;
+}
+notebook combbox button:active,
+notebook combbox button:checked {
+    min-height:20px;
+    min-width:20px;
+    padding:4px 6px;
+    border:1px solid;
+    border-color:  transparent;
+    border-radius: 2px;
+    background-color: #e27242;
+    background-color: rgba(50, 50, 50, 0.9);
+    background-image: none;
+}
+notebook combbox button:active:hover,
+notebook combbox button:checked:hover {
+    min-height:20px;
+    min-width:20px;
+    padding:4px 6px;
+    border:1px solid;
+    border-color:  transparent;
+    border-radius: 2px;
+    background-color: #e27242;
+    background-color: rgba(80, 80, 80, 0.9);
+    background-image: none;
+}
+*/
+/****************/
+/* TOOL BUTTONS */
+/****************/
+toolbutton > button {
+    min-height:18px;
+    min-width:18px;
+    transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border:1px solid;
+    border-radius:0px;
+    padding:1px 1px;
+    color:@fg_color;
+    border-color: @bg_color;
+    background-color:@bg_color;
+    outline-color: transparent;
+    background-image: none;
+    box-shadow: none;
+    text-shadow: none;
+    border-image: none;
+    -gtk-icon-shadow: none;
+}
+toolbutton > button:hover,
+toolbutton > button:checked {
+    min-height:18px;
+    min-width:18px;
+    transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border:1px solid;
+    border-radius:3px;
+    padding:1px 1px;
+    color:@fg_color;
+    background-color:#383838;
+    background-image: none;
+    box-shadow: none;
+    border-color: transparent;
+    border-image: none;
+    -gtk-icon-shadow: none;
+}
+toolbutton > button:checked:hover {
+    min-height:18px;
+    min-width:18px;
+    transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border:1px solid;
+    border-radius:3px;
+    padding:1px 1px;
+    color:@fg_color;
+    border-color:#383838;
+    background-color:#3c3c3c;
+    background-image: none;
+    box-shadow: none;
+    border-image: none;
+}
+/**************/
+/* HEADER BAR */
+/**************/
+headerbar {
+    -GtkWidget-window-dragging:true;
+    padding:4px;
+    color: white;
+    border: 0;
+    border-color:transparent;
+    background-color:#222;
+    background-image:none;
+}
+headerbar button {
+    background-image:none;
+    border-radius:0px;
+    min-height:22px;
+    min-width:20px;
+    transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border:1px solid;
+    border-radius:3px;
+    padding:4px 6px;
+    color:white;
+    border-color:rgba(0,0,0, 0.5);
+    background-color:#555;
+    background-image:none;
+}
+headerbar button:hover {
+    background-image:none;
+    border-radius:0px;
+    min-height:22px;
+    min-width:20px;
+    transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border:1px solid;
+    border-radius:3px;
+    padding:4px 6px;
+    color:white;
+    border-color:rgba(0,0,0, 0.5);
+    background-color:#666;
+    background-image:none;
+}
+headerbar button:active,
+headerbar button:checked {
+    background-image:none;
+    border-radius:0px;
+    min-height:22px;
+    min-width:20px;
+    transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border:1px solid;
+    border-radius:3px;
+    padding:4px 6px;
+    color:white;
+    border-color:rgba(0,0,0, 0.5);
+    background-color:#888;
+    background-image:none;
+}
+headerbar button.suggested-action:not(:disabled) {
+    background-image:none;
+    border-radius:0px;
+    min-height:22px;
+    min-width:20px;
+    transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border:1px solid;
+    border-radius:3px;
+    padding:4px 6px;
+    color:white;
+    border-color:rgba(0,0,0, 0.5);
+    background-color:#D55;
+    background-image:none;
+}
+headerbar button.suggested-action:not(:disabled):hover {
+    color: white;
+    background-color:#E66;
+    background-image:none;
+}
+/****************/
+/* PROGRESS BAR */
+/****************/
+progressbar {
+    padding:0;
+    font-size:smaller;
+    min-width:5px;
+    min-height:5px;
+    background-color:#111;
+    background-image:none;
+}
+progressbar progress {
+    border:none;
+    border-radius:3px;
+    padding:1px;
+    box-shadow:none;
+    background-color:#999;
+    background-image:none;
+}
+progressbar trough {
+    border:none;
+    border-radius:3px;
+    background-color:#111;
+    min-width:5px;
+    min-height:5px;
+    padding:1px;
+    background-image:none;
+}
+/*********/
+/* SCALE */
+/*********/
+scale trough {
+    outline-offset:2px;
+    -gtk-outline-radius:4.5px;
+    border-radius:2.5px;
+    background-color:rgba(0, 0, 0, 0.5);
+    background-image: none;
+}
+scale trough:disabled {
+    background-color:rgba(40, 40, 40, 0.25);
+    background-image: none;
+}
+scale highlight {
+    border-radius:2.5px;
+    background-color:rgba(250, 250, 250, 0.6);
+    background-image: none;
+}
+scale slider {
+    background-color:#888;
+    border:1px solid #222;
+    border-radius:100%;
+    transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition-property:background, border;
+    background-image: none;
+}
+/************/
+/* TOOLTIPS */
+/************/
+tooltip label {
+    background-image: none;
+    color:white;
+    padding: 6px;
+}
+tooltip {
+    background-image: none;
+    padding: 4px;
+    border: 1px solid;
+    border-radius: 5px;
+    box-shadow: none;
+    text-shadow: 0 1px black;
+}
+tooltip.background {
+    background-image: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    background-clip: padding-box;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+tooltip decoration {
+    background-image: none;
+    background-color: transparent;
+}
+tooltip * {
+    background-image: none;
+    background-color: transparent;
+    color: white;
+}
+/**********/
+/* LABELS */
+/**********/
+label {
+    border-radius: 0;
+    border-width: 0 ;
+    border-image: none;
+    background-image: none;
+    background-color: transparent;
+    text-shadow:none;
+    font-weight: normal;
+}
+label:disabled {
+    color: alpha(white, 0.55);
+}
+menuitem label:disabled {
+    border-radius: 0;
+    border-width: 0 ;
+    border-image: none;
+    background-image: none;
+    background-color: transparent;
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.6);
+}
+/**************/
+/* SPINBUTTON */
+/**************/
+undershoot,
+undershoot.top,
+undershoot.bottom,
+undershoot.left,
+undershoot.right {
+    background: none;
+}
+spinbutton.horizontal button:focus:active {
+    background-color: #101010;
+    border-image: none;
+    border-radius: 0;
+    border-width: 0;
+    box-shadow: none;
+}
+spinbutton.horizontal button,
+spinbutton.horizontal button:hover,
+spinbutton.horizontal button:focus,
+spinbutton.horizontal button:focus:active,
+spinbutton.horizontal button:focus:hover,
+spinbutton.horizontal button:backdrop,
+spinbutton.horizontal button:backdrop:disabled,
+spinbutton.horizontal button:backdrop:hover,
+spinbutton.horizontal button:disabled {
+    border-width: 0;
+    border-color: transparent;
+    box-shadow: none;
+}
+spinbutton.horizontal button:nth-child(last),
+spinbutton.horizontal button:nth-child(last):hover,
+spinbutton.horizontal button:nth-child(last):focus,
+spinbutton.horizontal button:nth-child(last):focus:active,
+spinbutton.horizontal button:nth-child(last):focus:hover,
+spinbutton.horizontal button:nth-child(last):backdrop,
+spinbutton.horizontal button:nth-child(last):backdrop:disabled,
+spinbutton.horizontal button:nth-child(last):backdrop:hover,
+spinbutton.horizontal button:nth-child(last):disabled {
+    border-radius: 0;
+    border-width: 0;
+    margin: 0;
+    box-shadow: none;
+}
+spinbutton.horizontal entry {
+    border-image: none;
+    border-radius: 0;
+    border-color: transparent;
+    margin: 0;
+    box-shadow: none;
+    background-color: #222;
+}
+spinbutton.horizontal entry:focus {
+    border-radius: 0;
+    border-color: transparent;
+    margin: 0;
+    box-shadow: none;
+    background-color: #111;
+}
+spinbutton.horizontal entry:active,
+spinbutton.horizontal entry:active:backdrop,
+spinbutton.horizontal entry:disabled,
+spinbutton.horizontal entry:disabled:backdrop {
+    border-radius: 0;
+    border-color: transparent;
+    margin: 0;
+    box-shadow: none;
+}
+spinbutton button,
+spinbutton button:hover,
+spinbutton button:focus,
+spinbutton button:focus:hover,
+spinbutton button:backdrop,
+spinbutton button:backdrop:disabled,
+spinbutton button:backdrop:hover,
+spinbutton button:disabled {
+    color: @fg_color;
+    background-color: #101010;
+    background-image: none;
+    border-image: none;
+    border-radius: 0;
+    border-width: 0;
+    border: 0;
+    background-size:0;
+    box-shadow: none;
+}
+spinbutton button:active {
+    background-image: none;
+    box-shadow: none;
+}
+spinbutton button:disabled,
+spinbutton button:disabled:backdrop {
+    border-color: transparent;
+    color: shade (@bg_color, 0.66);
+    box-shadow: none;
+}
+spinbutton {
+    min-width: 32px;
+    min-height: 32px;
+    padding: 0;
+    margin: 0;
+    color: @fg_color;
+    background-image: none;
+    border-image: none;
+    border: 0;
+    border: 1px solid transparent;
+    border-radius: 0px;
+    box-shadow: none;
+    box-shadow: none;
+    text-shadow: none;
+    border-image: none;
+    -gtk-icon-shadow: none;
+}
+spinbutton:focus {
+    border: 1px solid #e27242;
+}
+/*
+spinbutton button {
+    box-shadow: none;
+    min-width: 26px;
+    min-height: 26px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+spinbutton button:hover {
+    box-shadow: none;
+    min-width: 26px;
+    min-height: 26px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+spinbutton button:disabled {
+    box-shadow: none;
+    min-width: 26px;
+    min-height: 26px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+spinbutton button:disabled:hover {
+    box-shadow: none;
+    min-width: 26px;
+    min-height: 26px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+*/
+/*
+spinbutton {
+    padding: 0;
+    margin: 0;
+    color: @fg_color;
+    background-image: none;
+    border-image: none;
+    border: 0;
+    border: 1px solid transparent;
+    border-radius: 0px;
+    box-shadow: none;
+    box-shadow: none;
+    text-shadow: none;
+    border-image: none;
+    -gtk-icon-shadow: none;
+}
+spinbutton button {
+    min-height:32px;
+    min-width:32px;
+    transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border:1px solid;
+    border-radius:3px;
+    padding:4px 6px;
+    color: alpha(@fg_color, 0.9);
+    border-color:@bg_color;
+    background-color: #101010;
+    background-image: none;
+    border-image: none;
+    box-shadow: none;
+}
+spinbutton button:hover {
+    min-height:32px;
+    min-width:32px;
+    padding:4px 6px;
+    transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border:1px solid;
+    border-radius:3px;
+    color:@fg_color;
+    border-color: @bg_color;
+    background-color: #101010;
+    background-image: none;
+    border-image: none;
+    box-shadow: none;
+}
+spinbutton button:disabled {
+    min-height:32px;
+    min-width:32px;
+    transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border:1px solid;
+    border-radius:3px;
+    padding:4px 6px;
+    color: alpha(@fg_color, 0.3);
+    border-color:@bg_color;
+    background-color: #101010;
+    background-image: none;
+    border-image: none;
+    box-shadow: none;
+}
+*/
+/*
+spinbutton.vertical entry,
+spinbutton.vertical entry:active,
+spinbutton.vertical entry:active:backdrop,
+spinbutton.vertical entry:disabled,
+spinbutton.vertical entry:disabled:backdrop {
+    border-color: transparent;
+    border-radius: 0;
+    border-width: 0 0;
+    box-shadow: none;
+}
+spinbutton {
+    padding: 0;
+    margin: 0;
+    color: @fg_color;
+    background-image: none;
+    border-image: none;
+    border: 0;
+    box-shadow: none;
+    background-image: none;
+    box-shadow: none;
+    text-shadow: none;
+    border-image: none;
+    -gtk-icon-shadow: none;
+}
+spinbutton:hover {
+    color: @fg_color;
+    box-shadow: none;
+}
+spinbutton button:hover {
+    box-shadow: none;
+}
+*/
+/******************/
+/* COMBOBOX ARROW */
+/******************/
+arrow {
+    min-height: 16px;
+    min-width: 16px;
+    color: @fg_color;
+}
+combobox arrow {
+    -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+}
+/************/
+/* COMBOBOX */
+/************/
+combobox button {
+    min-height:22px;
+    min-width:20px;
+    transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border:1px solid;
+    border-radius:3px;
+    padding:4px 6px;
+    color: alpha(white, 0.9);
+    border-color:rgba(0,0,0, 0.5);
+    background-color:#303030;
+    background-image: none;
+    border-image: none;
+    box-shadow: none;
+    text-shadow: none;
+}
+combobox button:hover {
+    min-height:22px;
+    min-width:20px;
+    transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border:1px solid;
+    border-radius:3px;
+    padding:4px 6px;
+    color:white;
+    border-color:rgba(0,0,0, 0.5);
+    background-color:#404040;
+    background-image: none;
+    border-image: none;
+    box-shadow: none;
+    text-shadow: none;
+}
+combobox button:disabled {
+    min-height:22px;
+    min-width:20px;
+    transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border:1px solid;
+    border-radius:3px;
+    padding:4px 6px;
+    color: alpha(@fg_color, 0.3);
+    border-color:rgba(0,0,0, 0.5);
+    background-color:#373737;
+    background-image: none;
+    border-image: none;
+    box-shadow: none;
+    text-shadow: none;
+}
+combobox button:active, button:checked {
+    min-height:22px;
+    min-width:20px;
+    transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border:1px solid;
+    border-radius:3px;
+    padding:4px 6px;
+    color: alpha(@fg_color, 0.9);
+    border-color:rgba(0,0,0, 0.5);
+    background-color:#606060;
+    background-image: none;
+    border-image: none;
+    box-shadow: none;
+    text-shadow: none;
+}
+combobox button.suggested-action:not(:disabled) {
+    color:white;
+    background-color:#D55;
+    background-image: none;
+    border-image: none;
+    box-shadow: none;
+    text-shadow: none;
+}
+combobox button.suggested-action:not(:disabled):hover {
+    background-color:#E66;
+    background-image: none;
+    border-image: none;
+    box-shadow: none;
+    text-shadow: none;
+}
+/**********/
+/* TROUGH */
+/**********/
+trough {
+    background-color: rgba(40, 40, 40, 0.3);
+}
+/************/
+/* LIST ROW */
+/************/
+list {
+    min-height: 30px;
+    background-color: #333;
+}
+list row {
+    padding: 0px;
+}
+row:not(:hover) {
+    transition: all 150ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    background-color: #333;
+}
+row.activatable.has-open-popup,
+row.activatable:hover {
+    background-color: #222;
+    color: @fg_color;
+}
+row.activatable:hover image {
+    background-color: #222;
+}
+row.activatable:selected {
+    color: white;
+    background-color: #222;
+}
+row.activatable:selected image {
+    color: white;
+    background-color: #222;
+}
+row.activatable:selected.has-open-popup {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+row.activatable:selected.has-open-popup image {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+row.activatable:selected:hover {
+    color: white;
+    background-color: #2a2a2a;
+}
+row.activatable:selected:hover image {
+    color: white;
+    background-color: #2a2a2a;
+}
