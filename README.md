@@ -1,6 +1,7 @@
-# GIMP-3-Themes
+# GIMP 3 Themes
+
 
 ## Screenshots
 
-### Dark theme
-![alt text](https://github.com/draekko/gimp-3-themes/raw/master/images/GIMP-Dark-theme.png "Dark theme")
+### Dark theme [Work in progress]
+![alt text](https://github.com/draekko-rand/GIMP-3-Themes/blob/master/images/GIMP-Dark-theme.png "Dark theme")
