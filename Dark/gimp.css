@@ -108,7 +108,8 @@ GimpDisplayShell combobox button {
 GimpDisplayShell progressbar text {
     font-size:larger;
 }
-GimpDisplayShell progressbar trough, GimpDisplayShell progressbar progress {
+GimpDisplayShell progressbar trough,
+GimpDisplayShell progressbar progress {
     min-height:1em;
 }
 GimpRuler {
@@ -121,6 +122,7 @@ headerbar,
 .titlebar:not(headerar) {
   box-shadow: none;
 }
+
 grid,
 .grid {
     color:white;
@@ -142,7 +144,10 @@ textview text {
     background-color:@bg_view_color;
 }
 .view:selected,
-.view:selected:focus,
+.view:selected:focus {
+    border-radius:2px;
+    background-color: #666;
+}
 .view text:selected,
 .view text:selected:focus {
     border-radius:2px;
@@ -170,7 +175,7 @@ entry {
     transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     color:@fg_color;
     border-color:#484848;
-    background-color: alpha(black, 0.8);
+    background-color: alpha(#222, 0.9);
     background-image: none;
     border: 0;
     border-radius: 0;
@@ -225,12 +230,22 @@ entry:disabled progress {
 /************/
 treeview.view {
     padding: 2px;
+    border-radius: 0;
 }
 treeview.view:hover {
-    background-color:#222222;
+    background-color:#222;
+    border-radius: 0;
 }
-treeview.view:selected {
-    background-color:#222222;
+treeview.view:selected,
+treeview.view:selected:focus {
+    background-color:#222;
+    border-radius: 0;
+}
+treeview.view:selected:hover,
+treeview.view:selected:focus:hover {
+    color: white;
+    background-color:#666;
+    border-radius: 0;
 }
 treeview.view.expander {
     -gtk-icon-source:-gtk-icontheme("pan-end-symbolic");
@@ -250,6 +265,7 @@ treeview.view.expander:checked {
 }
 treeview.view:disabled {
     color:rgba(250, 250, 250, 0.5);
+    border-radius: 0;
 }
 treeview.view header {
     border: 1px solid;
@@ -311,8 +327,8 @@ scrollbar:backdrop {
     transition: 200ms ease-out;
 }
 scrollbar slider {
-    min-width: 14px;
-    min-height: 14px;
+    min-width: 6px;
+    min-height: 6px;
     border: 3px solid transparent;
     border-radius: 9px;
     background-color: #7a7a7a;
@@ -501,7 +517,8 @@ checkbutton {
     border-radius: 3px;
     padding: 1px 4px 1px 4px;
     border-color: transparent;
-}/*****************/
+}
+/*****************/
 /* RADIO BUTTONS */
 /*****************/
 .radio, radio {
@@ -668,6 +685,13 @@ notebook > header {
     background-color:@bg_color;
     background-image: none;
 }
+notebook > stack:not(:only-child) {
+    background-color: #444;
+}
+notebook > header {
+    padding: 2px;
+    background-color: alpha(#333, 0.5);
+}
 notebook > header > tabs {
     border:0;
     padding:0;
@@ -758,133 +782,26 @@ notebook > header > tabs > tab:active {
     outline-color: transparent;
     background-color: @bg_color;
 }
-notebook entry {
-    background-image: none;
-    border: 0;
-    border-radius: 0;
-}
 notebook button {
-    min-height:22px;
-    min-width:20px;
     transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border:1px solid;
-    border-radius:3px;
-    padding:4px 6px;
     color: alpha(@fg_color, 0.9);
     border-color:@bg_color;
-    background-color: @bg_color;
-    background-image: none;
-    border-image: none;
-    box-shadow: none;
+    background-color: transparent;
 }
 notebook button:hover {
-    min-height:22px;
-    min-width:20px;
-    padding:4px 6px;
     transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border:1px solid;
-    border-radius:3px;
     color:@fg_color;
     border-color: @bg_color;
     background-color: rgba(50, 50, 50, 0.9);
-    background-image: none;
-    border-image: none;
-    box-shadow: none;
 }
+notebook button:disabled *,
 notebook button:disabled {
-    min-height:22px;
-    min-width:20px;
     transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border:1px solid;
-    border-radius:3px;
-    padding:4px 6px;
     color: alpha(@fg_color, 0.3);
     border-color:@bg_color;
-    background-color: @bg_color;
-    background-image: none;
-    border-image: none;
-    box-shadow: none;
-}
-/*
-notebook button:checked {
-    min-height:20px;
-    min-width:20px;
-    padding:4px 6px;
-    border:1px solid;
-    border-color: @bg_color;
-    border-radius:3px;
-    margin: 0;
-    border-image: none;
-    color: @fg_color;
-    background-image: none;
-    background-color: rgba(50, 50, 50, 0.9);
-    box-shadow: none;
-    transition: none;
-}
-notebook button:checked:hover {
-    min-height:20px;
-    min-width:20px;
-    padding:4px 6px;
-    border:1px solid;
-    border-radius:3px;
-    margin: 0;
-    border-color:  transparent;
-    border-image: none;
-    color: @fg_color;
-    background-image: none;
-    background-color: rgba(60, 60, 60, 0.9);
-    box-shadow: none;
-    transition: none;
-}
-notebook button:disabled {
-    min-height:20px;
-    min-width:20px;
-    padding:4px 6px;
-    border:1px solid;
-    border-radius:3px;
-    border-color:  transparent;
-    border-radius: 2px;
-    color: alpha(@fg_color, 0.3);
     background-color: transparent;
-    background-image: none;
 }
-notebook button:disabled:hover {
-    min-height:20px;
-    min-width:20px;
-    padding:4px 6px;
-    border:1px solid;
-    border-radius:3px;
-    border-color:  transparent;
-    border-radius: 2px;
-    color: alpha(@fg_color, 0.3);
-    background-color: transparent;
-    background-image: none;
-}
-notebook combbox button:active,
-notebook combbox button:checked {
-    min-height:20px;
-    min-width:20px;
-    padding:4px 6px;
-    border:1px solid;
-    border-color:  transparent;
-    border-radius: 2px;
-    background-color: #e27242;
-    background-color: rgba(50, 50, 50, 0.9);
-    background-image: none;
-}
-notebook combbox button:active:hover,
-notebook combbox button:checked:hover {
-    min-height:20px;
-    min-width:20px;
-    padding:4px 6px;
-    border:1px solid;
-    border-color:  transparent;
-    border-radius: 2px;
-    background-color: #e27242;
-    background-color: rgba(80, 80, 80, 0.9);
-    background-image: none;
-}
-*/
+
 /****************/
 /* TOOL BUTTONS */
 /****************/
@@ -1034,9 +951,9 @@ headerbar button.destructive-action:not(:disabled):hover {
 progressbar {
     padding:0;
     font-size:smaller;
-    min-width:5px;
-    min-height:5px;
-    background-color:#111;
+    min-width:6px;
+    min-height:6px;
+    background-color: rgba(17,17,17, 0.9);
     background-image:none;
 }
 progressbar progress {
@@ -1044,15 +961,15 @@ progressbar progress {
     border-radius:3px;
     padding:1px;
     box-shadow:none;
-    background-color:#999;
+    background-color:rgba(153,153,153, 0.9);
     background-image:none;
 }
 progressbar trough {
     border:none;
     border-radius:3px;
-    background-color:#111;
-    min-width:5px;
-    min-height:5px;
+    background-color:rgba(17,17,17, 0.9);
+    min-width:6px;
+    min-height:6px;
     padding:1px;
     background-image:none;
 }
@@ -1140,108 +1057,90 @@ menuitem label:disabled {
 /**************/
 /* SPINBUTTON */
 /**************/
-undershoot,
-undershoot.top,
-undershoot.bottom,
-undershoot.left,
-undershoot.right {
-    background: none;
-}
-spinbutton.horizontal button:focus:active {
-    background-color: #101010;
-    border-image: none;
-    border-radius: 0;
-    border-width: 0;
-    box-shadow: none;
-}
-spinbutton.horizontal button,
-spinbutton.horizontal button:hover,
-spinbutton.horizontal button:focus,
-spinbutton.horizontal button:focus:active,
-spinbutton.horizontal button:focus:hover,
-spinbutton.horizontal button:backdrop,
-spinbutton.horizontal button:backdrop:disabled,
-spinbutton.horizontal button:backdrop:hover,
-spinbutton.horizontal button:disabled {
-    border-width: 0;
-    border-color: transparent;
-    box-shadow: none;
-}
-spinbutton.horizontal button:nth-child(last),
-spinbutton.horizontal button:nth-child(last):hover,
-spinbutton.horizontal button:nth-child(last):focus,
-spinbutton.horizontal button:nth-child(last):focus:active,
-spinbutton.horizontal button:nth-child(last):focus:hover,
-spinbutton.horizontal button:nth-child(last):backdrop,
-spinbutton.horizontal button:nth-child(last):backdrop:disabled,
-spinbutton.horizontal button:nth-child(last):backdrop:hover,
-spinbutton.horizontal button:nth-child(last):disabled {
-    border-radius: 0;
-    border-width: 0;
+spinbutton {
+    min-width: 22px;
+    min-height: 22px;
+    padding: 0;
     margin: 0;
-    box-shadow: none;
-}
-spinbutton.horizontal entry {
+    color: @fg_color;
+    background-color: black;
+    background-image: none;
     border-image: none;
-    border-radius: 0;
-    border-color: transparent;
-    margin: 0;
+    border: 0;
+    border: 1px solid transparent;
+    border-radius: 0px;
     box-shadow: none;
+    box-shadow: none;
+    text-shadow: none;
+    border-image: none;
+    -gtk-icon-shadow: none;
+}
+spinbutton:disabled {
+    color: alpha(#DDD, 0.5);
     background-color: #222;
 }
-spinbutton.horizontal entry:focus {
-    border-radius: 0;
-    border-color: transparent;
-    margin: 0;
-    box-shadow: none;
-    background-color: #111;
+spinbutton  entry {
+    background-color: alpha(#222, 0.9);
 }
-spinbutton.horizontal entry:active,
-spinbutton.horizontal entry:active:backdrop,
-spinbutton.horizontal entry:disabled,
-spinbutton.horizontal entry:disabled:backdrop {
-    border-radius: 0;
-    border-color: transparent;
-    margin: 0;
-    box-shadow: none;
+spinbutton:disabled  entry {
+    background-color: #222;
 }
-spinbutton button,
-spinbutton button:hover,
-spinbutton button:focus,
-spinbutton button:focus:hover,
-spinbutton button:backdrop,
-spinbutton button:backdrop:disabled,
-spinbutton button:backdrop:hover,
-spinbutton button:disabled {
-    color: @fg_color;
-    background-color: #101010;
-    background-image: none;
+spinbutton entry:focus {
+    background-color: black;
+}
+spinbutton entry:active {
+    background-color: black;
+}
+spinbutton button {
+    min-width: 22px;
+    min-height: 22px;
+    padding: 0;
+    margin: 0;
+    border: 1px solid black;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-radius: 0px;
+    box-shadow: none;
+    box-shadow: none;
+    text-shadow: none;
     border-image: none;
-    border-radius: 0;
-    border-width: 0;
-    border: 0;
-    background-size:0;
+    -gtk-icon-shadow: none;
+    background-color: alpha(black, 0.5);
+}
+spinbutton button:hover {
+    min-width: 22px;
+    min-height: 22px;
+    padding: 0;
+    margin: 0;
+    border: 1px solid alpha(white, 0.5);
+    border-radius: 0px;
     box-shadow: none;
+    box-shadow: none;
+    text-shadow: none;
+    border-image: none;
+    -gtk-icon-shadow: none;
+    background-color: alpha(black, 0.7);
 }
 spinbutton button:active {
-    background-image: none;
-    box-shadow: none;
-}
-spinbutton button:disabled,
-spinbutton button:disabled:backdrop {
-    border-color: transparent;
-    color: shade (@bg_color, 0.66);
-    box-shadow: none;
-}
-spinbutton {
-    min-width: 32px;
-    min-height: 32px;
+    min-width: 22px;
+    min-height: 22px;
     padding: 0;
     margin: 0;
-    color: @fg_color;
-    background-image: none;
+    border: 1px solid alpha(white, 0.5);
+    border-radius: 0px;
+    box-shadow: none;
+    box-shadow: none;
+    text-shadow: none;
     border-image: none;
-    border: 0;
+    -gtk-icon-shadow: none;
+    background-color: alpha(black, 0.7);
+}
+spinbutton button:disabled {
+    min-width: 22px;
+    min-height: 22px;
+    padding: 0;
+    margin: 0;
     border: 1px solid transparent;
     border-radius: 0px;
     box-shadow: none;
@@ -1249,136 +1148,22 @@ spinbutton {
     text-shadow: none;
     border-image: none;
     -gtk-icon-shadow: none;
+    background-color: alpha(black, 0.7);
 }
-spinbutton:focus {
-    border: 1px solid #e27242;
-}
-/*
-spinbutton button {
-    box-shadow: none;
-    min-width: 26px;
-    min-height: 26px;
+spinbutton button:checked {
+    min-width: 22px;
+    min-height: 22px;
     padding: 0;
     margin: 0;
-    border: 0;
-}
-spinbutton button:hover {
-    box-shadow: none;
-    min-width: 26px;
-    min-height: 26px;
-    padding: 0;
-    margin: 0;
-    border: 0;
-}
-spinbutton button:disabled {
-    box-shadow: none;
-    min-width: 26px;
-    min-height: 26px;
-    padding: 0;
-    margin: 0;
-    border: 0;
-}
-spinbutton button:disabled:hover {
-    box-shadow: none;
-    min-width: 26px;
-    min-height: 26px;
-    padding: 0;
-    margin: 0;
-    border: 0;
-}
-*/
-/*
-spinbutton {
-    padding: 0;
-    margin: 0;
-    color: @fg_color;
-    background-image: none;
-    border-image: none;
-    border: 0;
-    border: 1px solid transparent;
+    border: 1px solid alpha(white, 0.5);
     border-radius: 0px;
     box-shadow: none;
     box-shadow: none;
     text-shadow: none;
     border-image: none;
     -gtk-icon-shadow: none;
+    background-color: alpha(black, 0.7);
 }
-spinbutton button {
-    min-height:32px;
-    min-width:32px;
-    transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border:1px solid;
-    border-radius:3px;
-    padding:4px 6px;
-    color: alpha(@fg_color, 0.9);
-    border-color:@bg_color;
-    background-color: #101010;
-    background-image: none;
-    border-image: none;
-    box-shadow: none;
-}
-spinbutton button:hover {
-    min-height:32px;
-    min-width:32px;
-    padding:4px 6px;
-    transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border:1px solid;
-    border-radius:3px;
-    color:@fg_color;
-    border-color: @bg_color;
-    background-color: #101010;
-    background-image: none;
-    border-image: none;
-    box-shadow: none;
-}
-spinbutton button:disabled {
-    min-height:32px;
-    min-width:32px;
-    transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border:1px solid;
-    border-radius:3px;
-    padding:4px 6px;
-    color: alpha(@fg_color, 0.3);
-    border-color:@bg_color;
-    background-color: #101010;
-    background-image: none;
-    border-image: none;
-    box-shadow: none;
-}
-*/
-/*
-spinbutton.vertical entry,
-spinbutton.vertical entry:active,
-spinbutton.vertical entry:active:backdrop,
-spinbutton.vertical entry:disabled,
-spinbutton.vertical entry:disabled:backdrop {
-    border-color: transparent;
-    border-radius: 0;
-    border-width: 0 0;
-    box-shadow: none;
-}
-spinbutton {
-    padding: 0;
-    margin: 0;
-    color: @fg_color;
-    background-image: none;
-    border-image: none;
-    border: 0;
-    box-shadow: none;
-    background-image: none;
-    box-shadow: none;
-    text-shadow: none;
-    border-image: none;
-    -gtk-icon-shadow: none;
-}
-spinbutton:hover {
-    color: @fg_color;
-    box-shadow: none;
-}
-spinbutton button:hover {
-    box-shadow: none;
-}
-*/
 /******************/
 /* COMBOBOX ARROW */
 /******************/
@@ -1471,9 +1256,24 @@ combobox button.suggested-action:not(:disabled):hover {
 /**********/
 /* TROUGH */
 /**********/
-trough {
-    background-color: rgba(40, 40, 40, 0.3);
+.trough,
+trough,
+trough row,
+trough row:hover,
+trough row:selected,
+trough row:selected:focus {
+    background-color: alpha(#222, 0.2);
+    border-style: solid;
+    border-width: 1px;
 }
+
+.trough.vertical,
+trough.vertical {
+    background-image: -gtk-gradient (linear, left top, right top,
+                                     from (#ddd),
+                                     to (#eee));
+}
+
 /************/
 /* LIST ROW */
 /************/
@@ -1487,6 +1287,9 @@ list row {
 row:not(:hover) {
     transition: all 150ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     background-color: #333;
+}
+row:hover {
+    background-color: red;
 }
 row.activatable.has-open-popup,
 row.activatable:hover {
@@ -1512,9 +1315,111 @@ row.activatable:selected.has-open-popup image {
 }
 row.activatable:selected:hover {
     color: white;
-    background-color: #2a2a2a;
+    background-color: #666;
 }
 row.activatable:selected:hover image {
     color: white;
-    background-color: #2a2a2a;
+    background-color: #666;
+}
+/***************/
+/* PRINTDIALOG */
+/***************/
+printdialog paper {
+    border: 1px solid #222;
+    background: #DDD;
+    padding: 0;
+}
+printdialog .dialog-action-box {
+    margin: 12px;
+}
+/***************/
+/* FILECHOOSER */
+/***************/
+filechooser * {
+    border-radius: 0;
+}
+filechooser button {
+    border: 1px solid;
+    border-color: alpha(black, 0.2);
+}
+filechooser header {
+    background: @bg_color;
+}
+filechooser treeview.view,
+filechooser treeview.view:hover {
+    border-radius: 0;
+}
+filechooser treeview.view:active,
+filechooser treeview.view:active:hover {
+    border-radius: 0;
+}
+filechooser row:selected {
+    border-radius: 0;
+}
+filechooser treeview.view:selected,
+filechooser treeview.view:selected:hover {
+    border-radius: 0;
+}
+filechooser treeview.view:checked,
+filechooser treeview.view:checked:hover {
+    border-radius: 0;
+}
+filechooser treeview.view:disabled,
+filechooser treeview.view:disabled:hover {
+    border-radius: 0;
+}
+filechooser treeview.view:focus,
+filechooser treeview.view:focus:hover {
+    border-radius: 0;
+}
+filechooser treeview.view:disabled:selected,
+filechooser treeview.view:disabled:selected:hover {
+    border-radius: 0;
+}
+filechooser treeview.view:selected,
+filechooser treeview.view:selected:focus {
+    background-color: #222;
+    border-radius: 0;
+}
+filechooser treeview.view:selected:hover,
+filechooser treeview.view:selected:focus:hover {
+    color: white;
+    background-color: #666;
+    border-radius: 0;
+}
+filechooser treeview.view header button {
+    margin-right: 0px;
+    background: @bg_color;
+}
+filechooser separator {
+    background: @bg_color;
+}
+filechooser treeview.view header button:nth-child(last) {
+    margin-right: 0px;
+    background: @bg_color;
+}
+filechooser list row {
+    color: #DDD;
+}
+filechooser list row image {
+    background: transparent;
+}
+filechooser list row button {
+    border: 0;
+    background: transparent;
+}
+filechooser list row button:hover {
+    border: 0;
+    background: transparent;
+}
+filechooser list row button:focus {
+    border: 0;
+    background: transparent;
+}
+filechooser {
+    background-color: @bg_color;
+}
+filechooser actionbar {
+    background-color: @bg_color;
+    border-color: @bg_color;
 }
