@@ -7,9 +7,6 @@
 /**********/
 /* COLORS */
 /**********/
-/* @define-color color_0001 rgba(183, 183, 183, 0.999); */
-/* @define-color color_0001 rgba(220, 220, 220, 0.9); */
-/* @define-color color_0001 #EEE; */
 @define-color color_0001 rgba(240, 240, 240, 0.999);
 @define-color color_0002 #101010;
 @define-color color_0003 rgba(135, 135, 135, 127);
@@ -26,14 +23,13 @@
 @define-color color_0014 rgba(48, 48, 48, 0.2);
 @define-color color_0015 rgba(44, 44, 44, 0.45);
 @define-color color_0016 transparent;
-/* rgba(250,250,250, 0.02); */
-@define-color color_0017 #BBB;
+@define-color color_0017 #A1A1A1;
 @define-color color_0018 #B7B7B7;
 @define-color color_0019 #EEE;
 @define-color color_0020 #e27242;
 @define-color color_0021 #888;
 @define-color color_0022 #CCC;
-@define-color color_0023 #EEE;
+@define-color color_0023 #E1E1E1;
 @define-color color_0024 #858585;
 @define-color color_0025 #757575;
 @define-color color_0026 #D8D8D8;
@@ -75,7 +71,6 @@
 @define-color color_0062 rgba(255, 255, 255, 0.6);
 @define-color color_0063 black;
 @define-color color_0064 white;
-@define-color color_0065 transparent;
 @define-color color_0066 #FFF;
 
 
@@ -112,7 +107,7 @@
     -gtk-outline-radius:2px;
     background-clip:padding-box;
     outline-color: alpha(currentColor,0.3);
-    outline-color: transparent;
+    outline-color: @color_0016;
     outline-style: dashed;
     outline-offset: -3px;
     outline-width: 1px;
@@ -198,15 +193,31 @@ textview text {
     color:@color_0002;
     background-color:@color_0027;
 }
-.view:selected,
-.view:selected:focus {
-    border-radius:2px;
+/* start - influences preferences page
+           label, icon, and background */
+.view:selected label,
+.view:selected:focus label {
+    border-radius:3px;
+    color: @color_0064;
     background-color: @color_0017;
 }
+.view:selected image,
+.view:selected:focus image {
+    border-radius:3px;
+    color: @color_0064;
+    background-color: @color_0017;
+}
+.view:selected,
+.view:selected:focus {
+    border-radius:3px;
+    color: @color_0064;
+    background-color: @color_0017;
+}
+/* end */
 .view text:selected,
 .view text:selected:focus {
     border-radius:2px;
-    background-color: @color_0017;
+    background-color: @color_0042;
 }
 iconview:selected,
 iconview:selected:focus,
@@ -242,7 +253,7 @@ entry:active {
     border-radius: 0;
     background-color: alpha(@color_0064, 0.87);
     border: 0;
-    border-color: transparent;
+    border-color: @color_0016;
     box-shadow:inset 1px 0 @color_0020, inset -1px 0 @color_0020, inset 0 1px @color_0020, inset 0 -1px @color_0020;
 }
 entry:disabled {
@@ -283,6 +294,10 @@ entry:disabled progress {
 /************/
 /* TREEVIEW */
 /************/
+treeview.view > image,
+treeview.view > .image {
+    color: @color_0063;
+}
 treeview.view {
     padding: 2px;
     border-radius: 0;
@@ -293,6 +308,7 @@ treeview.view:hover {
 }
 treeview.view:selected,
 treeview.view:selected:focus {
+    color: @color_0063;
     background-color:@color_0028;
     border-radius: 0;
 }
@@ -307,7 +323,7 @@ treeview.view:selected:focus {
     border-radius: 0;
 }
 treeview.view:selected:focus:hover {
-    background-color:@color_0066;
+    background-color:#EEE;
 }
 treeview.view.expander {
     -gtk-icon-source:-gtk-icontheme("pan-end-symbolic");
@@ -360,7 +376,7 @@ treeview.view header button:nth-child(last) {
     background-color:@color_0001;
     border-style:none solid none none;
     border-radius: 0;
-    border-color: transparent;
+    border-color: @color_0016;
     border-image: none;
     box-shadow: none;
 }
@@ -379,16 +395,16 @@ scrollbar {
     padding: 0px;
 }
 scrollbar.top {
-    border-bottom: 1px solid @color_0023;
+    border-bottom: 1px solid @color_0019;
 }
 scrollbar.bottom {
-    border-top: 1px solid @color_0023;
+    border-top: 1px solid @color_0019;
 }
 scrollbar.left {
-    border-right: 1px solid @color_0023;
+    border-right: 1px solid @color_0019;
 }
 scrollbar.right {
-    border-left: 1px solid @color_0023;
+    border-left: 1px solid @color_0019;
 }
 scrollbar:backdrop {
     background-color: @color_0022;
@@ -398,7 +414,7 @@ scrollbar:backdrop {
 scrollbar slider {
     min-width: 6px;
     min-height: 6px;
-    border: 2px solid transparent;
+    border: 2px solid @color_0016;
     border-radius: 9px;
     background-color: @color_0024;
 }
@@ -415,12 +431,13 @@ scrollbar slider:hover:active {
     background-color: @color_0025;
 }
 scrollbar slider:disabled {
-    background-color: transparent;
+    background-color: @color_0016;
 }
 /******************/
 /* MENU ITEMS BAR */
 /******************/
-menubar, .menubar {
+menubar,
+.menubar {
     -GtkWidget-window-dragging:true;
     padding:0px;
     background-color:@color_0001;
@@ -436,7 +453,7 @@ menubar:backdrop,
 menubar > menuitem,
 .menubar > menuitem {
     padding:4px 8px;
-    border:solid transparent;
+    border:solid @color_0016;
     border:0;
     background-image: none;
     border-image: none;
@@ -456,7 +473,7 @@ menubar > menuitem:hover,
 menubar > menuitem:disabled,
 .menubar > .menuitem:disabled {
     color:@color_0014;
-    border-color:transparent;
+    border-color:@color_0016;
     border: 0;
     border-image: none;
     background-image: none;
@@ -464,7 +481,7 @@ menubar > menuitem:disabled,
 }
 menubar > menuitem:active,
 .menubar > .menuitem:active {
-    border-color:transparent;
+    border-color:@color_0016;
     border: 0;
     border-image: none;
     background-image: none;
@@ -472,7 +489,7 @@ menubar > menuitem:active,
 }
 menubar > menuitem:checked,
 .menubar > .menuitem:checked {
-    border-color:transparent;
+    border-color:@color_0016;
     border: 0;
     border-image: none;
     background-image: none;
@@ -488,16 +505,19 @@ menu,
     text-shadow: none;
     border: 0;
 }
-menu separator, .menu separator {
+menu separator,
+.menu separator {
     margin:2px 0;
     background-color:@color_0022;
     box-shadow: none;
     border: 0;
 }
-menu .separator:not(label), .menu .separator:not(label) {
+menu .separator:not(label),
+.menu .separator:not(label) {
     color:@color_0022;
 }
-menu menuitem, .menu menuitem {
+menu menuitem,
+.menu menuitem {
     min-height:16px;
     min-width:40px;
     padding:5px;
@@ -505,19 +525,22 @@ menu menuitem, .menu menuitem {
     text-shadow: none;
     border: 0;
 }
-menu menuitem:hover, .menu menuitem:hover {
+menu menuitem:hover,
+.menu menuitem:hover {
     color:@color_0002;
     background-color:@color_0026;
     text-shadow: none;
     background-image: none;
     border: 0;
 }
-menu menuitem:disabled, .menu menuitem:disabled {
+menu menuitem:disabled,
+.menu menuitem:disabled {
     color:@color_0015;
     text-shadow: none;
     border: 0;
 }
-menu menuitem arrow, .menu menuitem arrow {
+menu menuitem arrow,
+.menu menuitem arrow {
     min-height:16px;
     min-width:16px;
     -gtk-icon-source:-gtk-icontheme("pan-end-symbolic");
@@ -526,13 +549,20 @@ menu menuitem arrow, .menu menuitem arrow {
 menuitem accelerator {
     color:alpha(currentColor,0.55);
 }
-menuitem check, menuitem radio {
+menuitem check,
+menuitem .radio:hover,
+menuitem radio {
     min-height:16px;
     min-width:16px;
     margin-right:6px;
     margin-left:2px;
     background-image: none;
-    outline-color: transparent;
+    outline-color: @color_0016;
+}
+menuitem check:hover,
+menuitem .radio:hover,
+menuitem radio:hover {
+    border-color: @color_0012;
 }
 menu button:hover,
 menu button:checked,
@@ -544,10 +574,11 @@ menu button {
 /*****************/
 /* CHECK BUTTONS */
 /*****************/
-.check, check {
+.check,
+check {
     -gtk-icon-source:-gtk-scaled(url("assets/checkbox-unchecked-dark.png"), url("assets/checkbox-un checked-dark@2.png"));
     background-image: none;
-    outline-color: transparent;
+    outline-color: @color_0016;
     border-image: none;
     border: 1px solid alpha(@color_0063, 0.4);
     border-radius: 4px;
@@ -556,9 +587,10 @@ menu button {
     -gtk-icon-shadow: none;
     transition: none;
 }
-.check:active, check:active {
+.check:active,
+check:active {
     background-image: none;
-    outline-color: transparent;
+    outline-color: @color_0016;
     border-image: none;
     border: 1px solid alpha(@color_0063, 0.4);
     box-shadow: none;
@@ -566,10 +598,11 @@ menu button {
     -gtk-icon-shadow: none;
     transition: none;
 }
-.check:checked, check:checked {
+.check:checked,
+check:checked {
     -gtk-icon-source:-gtk-scaled(url("assets/checkbox-checked-dark.png"), url("assets/checkbox-checked-dark@2.png"));
     background-image: none;
-    outline-color: transparent;
+    outline-color: @color_0016;
     border-image: none;
     border: 1px solid alpha(@color_0063, 0.4);
     box-shadow: none;
@@ -577,10 +610,11 @@ menu button {
     -gtk-icon-shadow: none;
     transition: none;
 }
-.check:disabled, check:disabled {
+.check:disabled,
+check:disabled {
     -gtk-icon-source:-gtk-scaled(url("assets/checkbox-unchecked-insensitive-dark.png"), url("assets/checkbox-unchecked-insensitive-dark@2.png"));
     background-image: none;
-    outline-color: transparent;
+    outline-color: @color_0016;
     border-image: none;
     border: 1px solid alpha(@color_0063, 0.4);
     box-shadow: none;
@@ -592,43 +626,47 @@ checkbutton {
     border: 1px solid;
     border-radius: 3px;
     padding: 1px 4px 1px 4px;
-    border-color: transparent;
+    border-color: @color_0016;
 }
 /*****************/
 /* RADIO BUTTONS */
 /*****************/
-.radio, radio {
+.radio,
+radio {
     -gtk-icon-source:-gtk-scaled(url("assets/radio-unchecked-dark.png"), url("assets/radio-unchecked-dark@2.png"));
     background-image: none;
-    outline-color: transparent;
+    outline-color: @color_0016;
     border: 1px solid alpha(@color_0063, 0.4);
     border-radius: 50%;
     box-shadow: none;
     text-shadow: none;
     -gtk-icon-shadow: none;
 }
-.radio:active, radio:active {
+.radio:active,
+radio:active {
     background-image: none;
-    outline-color: transparent;
+    outline-color: @color_0016;
     border-image: none;
     border: 1px solid alpha(@color_0063, 0.4);
     box-shadow: none;
     text-shadow: none;
     -gtk-icon-shadow: none;
 }
-.radio:checked, radio:checked {
+.radio:checked,
+radio:checked {
     -gtk-icon-source:-gtk-scaled(url("assets/radio-checked-dark.png"), url("assets/radio-checked-dark@2.png"));
     background-image: none;
-    outline-color: transparent;
+    outline-color: @color_0016;
     border: 1px solid alpha(@color_0063, 0.4);
     box-shadow: none;
     text-shadow: none;
     -gtk-icon-shadow: none;
 }
-.radio:disabled, radio:disabled {
+.radio:disabled,
+radio:disabled {
     -gtk-icon-source:-gtk-scaled(url("assets/radio-unchecked-insensitive-dark.png"), url("assets/radio-unchecked-insensitive-dark@2.png"));
     background-image: none;
-    outline-color: transparent;
+    outline-color: @color_0016;
     border: 1px solid alpha(@color_0063, 0.4);
     box-shadow: none;
     text-shadow: none;
@@ -638,6 +676,10 @@ radiobutton {
     border: 1px solid;
     border-radius: 3px;
     padding: 1px 4px 1px 4px;
+    border-color: @color_0016;
+}
+* > button.radio {
+    border-radius: 3px;
     border-color: transparent;
 }
 /*************/
@@ -684,7 +726,7 @@ button:hover {
     border-radius:3px;
     color:@color_0063;
     border-color:@color_0016;
-    background-color:@color_0017;
+    background-color:@color_0042;
     background-image: none;
     border-image: none;
     box-shadow: none;
@@ -759,7 +801,7 @@ notebook > stack:not(:only-child) {
 }
 notebook > header {
     border: 1px solid;
-    border-color: transparent;
+    border-color: @color_0016;
     background-color:@color_0001;
     background-image: none;
 }
@@ -791,7 +833,7 @@ notebook > header > tabs > tab  {
     min-height:24px;
     border-radius:0;
     box-shadow: none;
-    outline-color: transparent;
+    outline-color: @color_0016;
 }
 notebook > header > tabs > tab:nth-child(last) {
     padding:0;
@@ -809,7 +851,7 @@ notebook > header > tabs > tab:nth-child(last) {
     min-height:24px;
     border-radius:0;
     box-shadow: none;
-    outline-color: transparent;
+    outline-color: @color_0016;
 }
 notebook > header > tabs > tab:hover {
     color: alpha(@color_0002, 0.73);
@@ -825,7 +867,7 @@ notebook > header > tabs > tab:hover {
     min-height:24px;
     border-radius:0;
     box-shadow: none;
-    outline-color: transparent;
+    outline-color: @color_0016;
 }
 notebook > header > tabs > tab:checked:hover,
 notebook > header > tabs > tab:active:hover {
@@ -841,7 +883,7 @@ notebook > header > tabs > tab:active:hover {
     min-height:24px;
     border-radius:0;
     box-shadow: none;
-    outline-color: transparent;
+    outline-color: @color_0016;
 }
 notebook > header > tabs > tab:checked,
 notebook > header > tabs > tab:active {
@@ -857,27 +899,32 @@ notebook > header > tabs > tab:active {
     min-height:24px;
     border-radius:0;
     box-shadow: none;
-    outline-color: transparent;
+    outline-color: @color_0016;
     background-color: @color_0001;
 }
 notebook button {
     transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     color: alpha(@color_0002, 0.9);
-    border-color:@color_0065;
-    background-color: transparent;
+    border-color:@color_0016;
+    background-color: @color_0016;
+}
+notebook .radio {
+    border-color: @color_0001;
+    background-color: alpha(@color_0039, 0.25);
+    border-radius: 3px;
 }
 notebook button:hover {
     transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     color:@color_0002;
-    border-color: @color_0065;
+    border-color: @color_0016;
     background-color: @color_0054;
 }
 notebook button:disabled *,
 notebook button:disabled {
     transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     color: alpha(@color_0002, 0.3);
-    border-color:@color_0065;
-    background-color: transparent;
+    border-color:@color_0016;
+    background-color: @color_0016;
 }
 /****************/
 /* TOOL BUTTONS */
@@ -892,7 +939,7 @@ toolbutton > button {
     color:@color_0002;
     border-color: @color_0001;
     background-color:@color_0001;
-    outline-color: transparent;
+    outline-color: @color_0016;
     background-image: none;
     box-shadow: none;
     text-shadow: none;
@@ -904,9 +951,11 @@ toolbutton > .radio {
     border-color: @color_0001;
 }
 toolbutton >  .radio:checked {
+    border-radius: 0%;
     border-color: @color_0001;
 }
 toolbutton >  .radio:hover {
+    border-radius: 0%;
     border-color: @color_0001;
 }
 toolbutton > button:hover,
@@ -921,7 +970,7 @@ toolbutton > button:checked {
     background-color:@color_0035;
     background-image: none;
     box-shadow: none;
-    border-color: transparent;
+    border-color: @color_0016;
     border-image: none;
     -gtk-icon-shadow: none;
 }
@@ -947,7 +996,7 @@ headerbar {
     padding:4px;
     color: @color_0063;
     border: 0;
-    border-color:transparent;
+    border-color:@color_0016;
     background-color:@color_0028;
     background-image:none;
 }
@@ -976,7 +1025,7 @@ headerbar button:hover {
     padding:4px 6px;
     color:@color_0063;
     border-color:@color_0016;
-    background-color:@color_0017;
+    background-color:@color_0042;
     background-image:none;
 }
 headerbar button:active,
@@ -1111,11 +1160,11 @@ tooltip.background {
 }
 tooltip decoration {
     background-image: none;
-    background-color: transparent;
+    background-color: @color_0016;
 }
 tooltip * {
     background-image: none;
-    background-color: transparent;
+    background-color: @color_0016;
     color: @color_0063;
 }
 /**********/
@@ -1126,7 +1175,7 @@ label {
     border-width: 0 ;
     border-image: none;
     background-image: none;
-    background-color: transparent;
+    background-color: @color_0016;
     text-shadow:none;
     font-weight: normal;
 }
@@ -1138,7 +1187,7 @@ menuitem label:disabled {
     border-width: 0 ;
     border-image: none;
     background-image: none;
-    background-color: transparent;
+    background-color: @color_0016;
     text-shadow: -1px -1px 1px @color_0062;
 }
 /**************/
@@ -1154,7 +1203,7 @@ spinbutton {
     background-image: none;
     border-image: none;
     border: 0;
-    border: 1px solid transparent;
+    border: 1px solid @color_0016;
     border-radius: 0px;
     box-shadow: none;
     box-shadow: none;
@@ -1230,7 +1279,7 @@ spinbutton button:disabled {
     min-height: 22px;
     padding: 0;
     margin: 0;
-    border: 1px solid transparent;
+    border: 1px solid @color_0016;
     border-radius: 0px;
     box-shadow: none;
     box-shadow: none;
@@ -1500,19 +1549,19 @@ filechooser list row {
 }
 filechooser list row image {
     color: @color_0063;
-    background: transparent;
+    background: @color_0016;
 }
 filechooser list row button {
     border: 0;
-    background: transparent;
+    background: @color_0016;
 }
 filechooser list row button:hover {
     border: 0;
-    background: transparent;
+    background: @color_0016;
 }
 filechooser list row button:focus {
     border: 0;
-    background: transparent;
+    background: @color_0016;
 }
 filechooser {
     background-color: @color_0001;
