@@ -1,5 +1,5 @@
 /**********************************/
-/* GIMP dark theme css file       */
+/* GIMP light theme css file       */
 /* Copyright 2018, Ben Touchette  */
 /* Licensed GPL v3                */
 /**********************************/
@@ -576,7 +576,7 @@ menu button {
 /*****************/
 .check,
 check {
-    -gtk-icon-source:-gtk-scaled(url("assets/checkbox-unchecked-dark.png"), url("assets/checkbox-un checked-dark@2.png"));
+    -gtk-icon-source:-gtk-scaled(url("assets/checkbox-unchecked-light.png"), url("assets/checkbox-un checked-light@2.png"));
     background-image: none;
     outline-color: @color_0016;
     border-image: none;
@@ -600,7 +600,7 @@ check:active {
 }
 .check:checked,
 check:checked {
-    -gtk-icon-source:-gtk-scaled(url("assets/checkbox-checked-dark.png"), url("assets/checkbox-checked-dark@2.png"));
+    -gtk-icon-source:-gtk-scaled(url("assets/checkbox-checked-light.png"), url("assets/checkbox-checked-light@2.png"));
     background-image: none;
     outline-color: @color_0016;
     border-image: none;
@@ -612,7 +612,7 @@ check:checked {
 }
 .check:disabled,
 check:disabled {
-    -gtk-icon-source:-gtk-scaled(url("assets/checkbox-unchecked-insensitive-dark.png"), url("assets/checkbox-unchecked-insensitive-dark@2.png"));
+    -gtk-icon-source:-gtk-scaled(url("assets/checkbox-unchecked-insensitive-light.png"), url("assets/checkbox-unchecked-insensitive-light@2.png"));
     background-image: none;
     outline-color: @color_0016;
     border-image: none;
@@ -633,7 +633,7 @@ checkbutton {
 /*****************/
 .radio,
 radio {
-    -gtk-icon-source:-gtk-scaled(url("assets/radio-unchecked-dark.png"), url("assets/radio-unchecked-dark@2.png"));
+    -gtk-icon-source:-gtk-scaled(url("assets/radio-unchecked-light.png"), url("assets/radio-unchecked-light@2.png"));
     background-image: none;
     outline-color: @color_0016;
     border: 1px solid alpha(@color_0063, 0.4);
@@ -654,7 +654,7 @@ radio:active {
 }
 .radio:checked,
 radio:checked {
-    -gtk-icon-source:-gtk-scaled(url("assets/radio-checked-dark.png"), url("assets/radio-checked-dark@2.png"));
+    -gtk-icon-source:-gtk-scaled(url("assets/radio-checked-light.png"), url("assets/radio-checked-light@2.png"));
     background-image: none;
     outline-color: @color_0016;
     border: 1px solid alpha(@color_0063, 0.4);
@@ -664,7 +664,7 @@ radio:checked {
 }
 .radio:disabled,
 radio:disabled {
-    -gtk-icon-source:-gtk-scaled(url("assets/radio-unchecked-insensitive-dark.png"), url("assets/radio-unchecked-insensitive-dark@2.png"));
+    -gtk-icon-source:-gtk-scaled(url("assets/radio-unchecked-insensitive-light.png"), url("assets/radio-unchecked-insensitive-light@2.png"));
     background-image: none;
     outline-color: @color_0016;
     border: 1px solid alpha(@color_0063, 0.4);
