@@ -1,5 +1,5 @@
 /**********************************/
-/* GIMP dark theme css file       */
+/* GIMP gray theme css file       */
 /* Copyright 2018, Ben Touchette  */
 /* Licensed GPL v3                */
 /**********************************/
@@ -7,7 +7,7 @@
 /**********/
 /* COLORS */
 /**********/
-@define-color color_0001 rgba(72, 72, 72, 0.999);
+@define-color color_0001 rgba(122, 122, 122, 0.999);
 @define-color color_0002 #efefef;
 @define-color color_0003 rgba(120, 120, 120, 127);
 @define-color color_0004 #b6bcc6;
@@ -16,24 +16,24 @@
 @define-color color_0007 rgba(68, 68, 68, 0.55);
 @define-color color_0008 rgba(255, 255, 255, 0.8);
 @define-color color_0009 rgba(25, 25, 25, 0.9);
-@define-color color_0010 rgba(255, 25, 25, 0.8);
+@define-color color_0010 rgba(55, 25, 25, 0.8);
 @define-color color_0011 rgba(31, 31, 31, 27);
 @define-color color_0012 rgba(250, 250, 250, 0.5);
 @define-color color_0013 rgba(255, 255, 255, 0.6);
 @define-color color_0014 rgba(207, 218, 231, 0.2);
 @define-color color_0015 rgba(211, 211, 211, 0.45);
-@define-color color_0016 rgba(0,0,0, 0.5);
+@define-color color_0016 rgba(0,0,0, 0.25); /* button border */
 @define-color color_0017 #666;
 @define-color color_0018 #484848;
-@define-color color_0019 #222;
+@define-color color_0019 #444;
 @define-color color_0020 #e27242;
 @define-color color_0021 #777;
 @define-color color_0022 #333;
 @define-color color_0023 #111;
-@define-color color_0024 #7a7a7a;
-@define-color color_0025 #8a8a8a;
-@define-color color_0026 #272727;
-@define-color color_0027 #303030;
+@define-color color_0024 #7a7a7a; /* scrollbar */
+@define-color color_0025 #8a8a8a; /* scrollbar */
+@define-color color_0026 #3F3F3F;
+@define-color color_0027 #454545; /* treeview list/row bg */
 @define-color color_0028 #404040;
 @define-color color_0029 #373737;
 @define-color color_0030 #606060;
@@ -41,18 +41,18 @@
 @define-color color_0032 #6E6;
 @define-color color_0033 #D55;
 @define-color color_0034 #E66;
-@define-color color_0035 #383838;
+@define-color color_0035 #484848;
 @define-color color_0036 #3c3c3c;
 @define-color color_0037 #555;
 @define-color color_0038 #888;
 @define-color color_0039 #ddd;
 @define-color color_0040 #eee;
 @define-color color_0041 #FD5239;
-@define-color color_0042 #444;
-@define-color color_0043 rgba(150,150,150,0.1);
-@define-color color_0044 rgba(150,150,150,0.05);
-@define-color color_0045 rgba(200,200,200,0.1);
-@define-color color_0046 rgba(200,200,200,0.05);
+@define-color color_0042 #777;
+@define-color color_0043 rgba(150,150,150,0.3);
+@define-color color_0044 rgba(150,150,150,0.2);
+@define-color color_0045 rgba(200,200,200,0.3);
+@define-color color_0046 rgba(200,200,200,0.2);
 @define-color color_0047 rgba(25, 2, 5, 0.7);
 @define-color color_0048 rgba(95, 95, 95, 0.4);
 @define-color color_0049 rgba(65, 65, 65, 0.5);
@@ -72,6 +72,8 @@
 @define-color color_0063 white;
 @define-color color_0064 black;
 @define-color color_0065 transparent;
+@define-color color_0066 #999;
+@define-color color_0067 #222;
 
 
 /*******/
@@ -212,6 +214,28 @@ textview text:selected,
 textview text:selected:focus {
     border-radius:2px;
 }
+/* start - influences preferences page
+           label, icon, and background */
+.view:selected label,
+.view:selected:focus label {
+    border-radius:3px;
+    color: @color_0063;
+    background-color: @color_0066;
+}
+.view:selected image,
+.view:selected:focus image {
+    border-radius:3px;
+    color: @color_0063;
+    background-color: @color_0066;
+}
+.view:selected,
+.view:selected:focus {
+    border-radius:3px;
+    color: @color_0063;
+    background-color: @color_0066;
+}
+/* end */
+
 /*********/
 /* ENTRY */
 /*********/
@@ -236,7 +260,7 @@ entry:active {
     border-radius: 0;
     background-color: alpha(@color_0064, 0.87);
     border: 0;
-    border-color: @color_0065;
+    background-color: @color_0067;
     box-shadow:inset 1px 0 @color_0020, inset -1px 0 @color_0020, inset 0 1px @color_0020, inset 0 -1px @color_0020;
 }
 entry:disabled {
@@ -282,13 +306,13 @@ treeview.view {
     border-radius: 0;
 }
 treeview.view:hover {
-    background-color:@color_0019;
     border-radius: 0;
+    background-color: @color_0022;
 }
 treeview.view:selected,
 treeview.view:selected:focus {
-    background-color:@color_0019;
     border-radius: 0;
+    background-color: @color_0022;
 }
 treeview.view:selected:hover,
 treeview.view:selected:focus:hover {
@@ -547,11 +571,12 @@ menu button {
 /*****************/
 .check,
 check {
-    -gtk-icon-source:-gtk-scaled(url("assets/checkbox-unchecked-dark.png"), url("assets/checkbox-un checked-dark@2.png"));
+    -gtk-icon-source:-gtk-scaled(url("assets/checkbox-unchecked-gray.png"), url("assets/checkbox-un checked-gray@2.png"));
     background-image: none;
     outline-color: @color_0065;
     border-image: none;
     border: 1px solid @color_0019;
+    border-radius:3px;
     box-shadow: none;
     text-shadow: none;
     -gtk-icon-shadow: none;
@@ -563,6 +588,7 @@ check:active {
     outline-color: @color_0065;
     border-image: none;
     border: 1px solid @color_0019;
+    border-radius:3px;
     box-shadow: none;
     text-shadow: none;
     -gtk-icon-shadow: none;
@@ -570,11 +596,12 @@ check:active {
 }
 .check:checked,
 check:checked {
-    -gtk-icon-source:-gtk-scaled(url("assets/checkbox-checked-dark.png"), url("assets/checkbox-checked-dark@2.png"));
+    -gtk-icon-source:-gtk-scaled(url("assets/checkbox-checked-gray.png"), url("assets/checkbox-checked-gray@2.png"));
     background-image: none;
     outline-color: @color_0065;
     border-image: none;
     border: 1px solid @color_0019;
+    border-radius:3px;
     box-shadow: none;
     text-shadow: none;
     -gtk-icon-shadow: none;
@@ -582,11 +609,12 @@ check:checked {
 }
 .check:disabled,
 check:disabled {
-    -gtk-icon-source:-gtk-scaled(url("assets/checkbox-unchecked-insensitive-dark.png"), url("assets/checkbox-unchecked-insensitive-dark@2.png"));
+    -gtk-icon-source:-gtk-scaled(url("assets/checkbox-unchecked-insensitive-gray.png"), url("assets/checkbox-unchecked-insensitive-gray@2.png"));
     background-image: none;
     outline-color: @color_0065;
     border-image: none;
     border: 1px solid @color_0019;
+    border-radius:3px;
     box-shadow: none;
     text-shadow: none;
     -gtk-icon-shadow: none;
@@ -603,7 +631,7 @@ checkbutton {
 /*****************/
 .radio,
 radio {
-    -gtk-icon-source:-gtk-scaled(url("assets/radio-unchecked-dark.png"), url("assets/radio-unchecked-dark@2.png"));
+    -gtk-icon-source:-gtk-scaled(url("assets/radio-unchecked-gray.png"), url("assets/radio-unchecked-gray@2.png"));
     background-image: none;
     outline-color: @color_0065;
     border: 1px solid @color_0019;
@@ -624,7 +652,7 @@ radio:active {
 }
 .radio:checked,
 radio:checked {
-    -gtk-icon-source:-gtk-scaled(url("assets/radio-checked-dark.png"), url("assets/radio-checked-dark@2.png"));
+    -gtk-icon-source:-gtk-scaled(url("assets/radio-checked-gray.png"), url("assets/radio-checked-gray@2.png"));
     background-image: none;
     outline-color: @color_0065;
     border: 1px solid @color_0019;
@@ -634,7 +662,7 @@ radio:checked {
 }
 .radio:disabled,
 radio:disabled {
-    -gtk-icon-source:-gtk-scaled(url("assets/radio-unchecked-insensitive-dark.png"), url("assets/radio-unchecked-insensitive-dark@2.png"));
+    -gtk-icon-source:-gtk-scaled(url("assets/radio-unchecked-insensitive-gray.png"), url("assets/radio-unchecked-insensitive-gray@2.png"));
     background-image: none;
     outline-color: @color_0065;
     border: 1px solid @color_0019;
@@ -825,7 +853,7 @@ notebook > header > tabs > tab:nth-child(last) {
 }
 notebook .radio {
     border-color: @color_0001;
-    background-color: alpha(@color_0019, 0.25);
+    background-color: alpha(@color_0067, 0.25);
     border-radius: 3px;
 }
 notebook > header > tabs > tab:hover {
@@ -970,7 +998,7 @@ headerbar {
     color: @color_0063;
     border: 0;
     border-color:@color_0065;
-    background-color:@color_0019;
+    background-color: @color_0029;
     background-image:none;
 }
 headerbar button {
@@ -1195,10 +1223,10 @@ spinbutton:disabled  entry {
     background-color: @color_0019;
 }
 spinbutton entry:focus {
-    background-color: @color_0064;
+    background-color: @color_0067;
 }
 spinbutton entry:active {
-    background-color: @color_0064;
+    background-color: @color_0067;
 }
 spinbutton button {
     min-width: 22px;
@@ -1398,6 +1426,7 @@ list row {
 row:not(:hover) {
     transition: all 150ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     background-color: @color_0022;
+    color: @color_0002;
 }
 row:hover {
     background-color: @color_0064;
@@ -1405,7 +1434,6 @@ row:hover {
 row.activatable.has-open-popup,
 row.activatable:hover {
     background-color: @color_0019;
-    color: @color_0002;
 }
 row.activatable:hover image {
     background-color: @color_0019;
@@ -1454,7 +1482,7 @@ filechooser button {
     border-color: alpha(@color_0064, 0.2);
 }
 filechooser header {
-    background: @color_0001;
+    background-color: @color_0001;
 }
 filechooser treeview.view,
 filechooser treeview.view:hover {
@@ -1489,8 +1517,8 @@ filechooser treeview.view:disabled:selected:hover {
 }
 filechooser treeview.view:selected,
 filechooser treeview.view:selected:focus {
-    background-color: @color_0019;
     border-radius: 0;
+    background-color: @color_0022;
 }
 filechooser treeview.view:selected:hover,
 filechooser treeview.view:selected:focus:hover {
@@ -1509,23 +1537,66 @@ filechooser treeview.view header button:nth-child(last) {
     margin-right: 0px;
     background: @color_0001;
 }
+filechooser list {
+    color: @color_0039;
+    background-color: @color_0019;
+}
 filechooser list row {
     color: @color_0039;
+    background-color: @color_0019;
 }
 filechooser list row image {
     background: @color_0065;
+    background-color: @color_0019;
 }
 filechooser list row button {
     border: 0;
-    background: @color_0065;
+    background-color: @color_0019;
 }
 filechooser list row button:hover {
     border: 0;
-    background: @color_0065;
+    background-color: @color_0019;
 }
 filechooser list row button:focus {
     border: 0;
-    background: @color_0065;
+    background-color: @color_0019;
+}
+filechooser row:not(:hover) {
+    transition: all 150ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    background-color: @color_0019;
+    color: @color_0002;
+}
+filechooser row:hover {
+    background-color: @color_0064;
+}
+filechooser row.activatable.has-open-popup,
+filechooser row.activatable:hover {
+    background-color: @color_0022;
+}
+filechooser row.activatable:hover image {
+    background-color: @color_0022;
+}
+filechooser row.activatable:selected {
+    color: @color_0063;
+    background-color: @color_0022;
+}
+filechooser row.activatable:selected image {
+    color: @color_0063;
+    background-color: @color_0022;
+}
+filechooser row.activatable:selected.has-open-popup {
+    background-color: @color_0061;
+}
+filechooser row.activatable:selected.has-open-popup image {
+    background-color: @color_0061;
+}
+filechooser row.activatable:selected:hover {
+    color: @color_0063;
+    background-color: @color_0017;
+}
+filechooser row.activatable:selected:hover image {
+    color: @color_0063;
+    background-color: @color_0017;
 }
 filechooser {
     background-color: @color_0001;

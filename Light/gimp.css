@@ -7,8 +7,8 @@
 /**********/
 /* COLORS */
 /**********/
-@define-color color_0001 rgba(240, 240, 240, 0.999);
-@define-color color_0002 #101010;
+@define-color color_0001 rgba(230, 230, 230, 0.999);
+@define-color color_0002 #414141;
 @define-color color_0003 rgba(135, 135, 135, 127);
 @define-color color_0004 #494339;
 @define-color color_0005 rgba(34, 34, 34, 0.45);
@@ -32,7 +32,7 @@
 @define-color color_0023 #E1E1E1;
 @define-color color_0024 #858585;
 @define-color color_0025 #757575;
-@define-color color_0026 #D8D8D8;
+@define-color color_0026 #C8C8C8;
 @define-color color_0027 #CFCFCF;
 @define-color color_0028 #DFDFDF;
 @define-color color_0029 #C8C8C8;
@@ -301,10 +301,12 @@ treeview.view > .image {
 treeview.view {
     padding: 2px;
     border-radius: 0;
+    color: alpha(@color_0063, 0.88);
 }
 treeview.view:hover {
     background-color:@color_0028;
     border-radius: 0;
+    color: @color_0063;
 }
 treeview.view:selected,
 treeview.view:selected:focus {
@@ -462,8 +464,8 @@ menubar > menuitem,
 }
 menubar > menuitem:hover,
 .menubar > menuitem:hover {
-    background-color:@color_0019;
-    color:@color_0002;
+    background-color:@color_0026;
+    color:@color_0040;
     border: 0;
     border-radius: 0;
     border-image: none;
@@ -527,7 +529,7 @@ menu menuitem,
 }
 menu menuitem:hover,
 .menu menuitem:hover {
-    color:@color_0002;
+    color:@color_0040;
     background-color:@color_0026;
     text-shadow: none;
     background-image: none;
@@ -1466,7 +1468,9 @@ row.activatable:selected:hover image {
 /***************/
 printdialog paper {
     border: 1px solid @color_0019;
+    border: 1px solid #333;
     background: @color_0039;
+    background: #BBB;
     padding: 0;
 }
 printdialog .dialog-action-box {

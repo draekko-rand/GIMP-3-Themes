@@ -6,6 +6,9 @@
 ### Dark theme
 ![alt text](https://github.com/draekko-rand/GIMP-3-Themes/blob/master/images/GIMP-Dark-theme.png "Dark theme")
 
+### Gray theme
+![alt text](https://github.com/draekko-rand/GIMP-3-Themes/blob/master/images/GIMP-Gray-theme.png "Dark theme")
+
 ### Light theme
 ![alt text](https://github.com/draekko-rand/GIMP-3-Themes/blob/master/images/GIMP-Light-theme.png "Light theme")
 
