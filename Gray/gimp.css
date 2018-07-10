@@ -702,8 +702,6 @@ separator.wide:hover {
 /* BUTTONS */
 /***********/
 button {
-    min-height:22px;
-    min-width:20px;
     transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border:1px solid;
     border-radius: 3px;
@@ -716,8 +714,6 @@ button {
     box-shadow: none;
 }
 button:hover {
-    min-height:22px;
-    min-width:20px;
     padding:4px 6px;
     transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border:1px solid;
@@ -730,8 +726,6 @@ button:hover {
     box-shadow: none;
 }
 button:disabled {
-    min-height:22px;
-    min-width:20px;
     transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border:1px solid;
     border-radius:3px;
@@ -745,8 +739,6 @@ button:disabled {
 }
 button:active,
 button:checked {
-    min-height:22px;
-    min-width:20px;
     transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border:1px solid;
     border-radius:3px;
@@ -783,6 +775,14 @@ button.destructive-action:not(:disabled):hover {
     background-image: none;
     border-image: none;
     box-shadow: none;
+}
+button,
+button:active,
+button:checked,
+button:hover,
+button:disabled {
+    min-height:22px;
+    min-width:20px;
 }
 /************/
 /* NOTEBOOK */
@@ -933,8 +933,6 @@ notebook button:disabled {
 /* TOOL BUTTONS */
 /****************/
 toolbutton > button {
-    min-height:18px;
-    min-width:18px;
     transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border:1px solid;
     border-radius:0px;
@@ -961,8 +959,6 @@ toolbutton >  .radio:hover {
 }
 toolbutton > button:hover,
 toolbutton > button:checked {
-    min-height:18px;
-    min-width:18px;
     transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border:1px solid;
     border-radius:3px;
@@ -976,8 +972,6 @@ toolbutton > button:checked {
     -gtk-icon-shadow: none;
 }
 toolbutton > button:checked:hover {
-    min-height:18px;
-    min-width:18px;
     transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border:1px solid;
     border-radius:3px;
@@ -988,6 +982,13 @@ toolbutton > button:checked:hover {
     background-image: none;
     box-shadow: none;
     border-image: none;
+}
+toolbutton > button,
+toolbutton > button:hover,
+toolbutton > button:checked,
+toolbutton > button:checked:hover {
+    min-height:18px;
+    min-width:18px;
 }
 /**************/
 /* HEADER BAR */
@@ -1004,8 +1005,6 @@ headerbar {
 headerbar button {
     background-image:none;
     border-radius:0px;
-    min-height:22px;
-    min-width:20px;
     transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border:1px solid;
     border-radius:3px;
@@ -1018,8 +1017,6 @@ headerbar button {
 headerbar button:hover {
     background-image:none;
     border-radius:0px;
-    min-height:22px;
-    min-width:20px;
     transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border:1px solid;
     border-radius:3px;
@@ -1033,8 +1030,6 @@ headerbar button:active,
 headerbar button:checked {
     background-image:none;
     border-radius:0px;
-    min-height:22px;
-    min-width:20px;
     transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border:1px solid;
     border-radius:3px;
@@ -1047,8 +1042,6 @@ headerbar button:checked {
 headerbar button.suggested-action:not(:disabled) {
     background-image:none;
     border-radius:0px;
-    min-height:22px;
-    min-width:20px;
     transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border:1px solid;
     border-radius:3px;
@@ -1066,8 +1059,6 @@ headerbar button.suggested-action:not(:disabled):hover {
 headerbar button.destructive-action:not(:disabled) {
     background-image:none;
     border-radius:0px;
-    min-height:22px;
-    min-width:20px;
     transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border:1px solid;
     border-radius:3px;
@@ -1081,6 +1072,15 @@ headerbar button.destructive-action:not(:disabled):hover {
     color: @color_0063;
     background-color:@color_0034;
     background-image:none;
+}
+headerbar button,
+headerbar button:hover,
+headerbar button:active,
+headerbar button:checked,
+headerbar button.suggested-action:not(:disabled),
+headerbar button.destructive-action:not(:disabled) {
+    min-height:22px;
+    min-width:20px;
 }
 /****************/
 /* PROGRESS BAR */
@@ -1195,8 +1195,6 @@ menuitem label:disabled {
 /* SPINBUTTON */
 /**************/
 spinbutton {
-    min-width: 22px;
-    min-height: 22px;
     padding: 0;
     margin: 0;
     color: @color_0002;
@@ -1229,8 +1227,6 @@ spinbutton entry:active {
     background-color: @color_0067;
 }
 spinbutton button {
-    min-width: 22px;
-    min-height: 22px;
     padding: 0;
     margin: 0;
     border: 1px solid @color_0064;
@@ -1246,8 +1242,6 @@ spinbutton button {
     background-color: alpha(@color_0064, 0.5);
 }
 spinbutton button:hover {
-    min-width: 22px;
-    min-height: 22px;
     padding: 0;
     margin: 0;
     border: 1px solid alpha(@color_0063, 0.5);
@@ -1260,8 +1254,6 @@ spinbutton button:hover {
     background-color: alpha(@color_0064, 0.7);
 }
 spinbutton button:active {
-    min-width: 22px;
-    min-height: 22px;
     padding: 0;
     margin: 0;
     border: 1px solid alpha(@color_0063, 0.5);
@@ -1274,8 +1266,6 @@ spinbutton button:active {
     background-color: alpha(@color_0064, 0.7);
 }
 spinbutton button:disabled {
-    min-width: 22px;
-    min-height: 22px;
     padding: 0;
     margin: 0;
     border: 1px solid @color_0065;
@@ -1288,8 +1278,6 @@ spinbutton button:disabled {
     background-color: alpha(@color_0064, 0.7);
 }
 spinbutton button:checked {
-    min-width: 22px;
-    min-height: 22px;
     padding: 0;
     margin: 0;
     border: 1px solid alpha(@color_0063, 0.5);
@@ -1300,6 +1288,15 @@ spinbutton button:checked {
     border-image: none;
     -gtk-icon-shadow: none;
     background-color: alpha(@color_0064, 0.7);
+}
+spinbutton,
+spinbutton button,
+spinbutton button:checked,
+spinbutton button:disabled,
+spinbutton button:active,
+spinbutton button:hover {
+    min-width: 22px;
+    min-height: 22px;
 }
 /******************/
 /* COMBOBOX ARROW */
@@ -1316,8 +1313,6 @@ combobox arrow {
 /* COMBOBOX */
 /************/
 combobox button {
-    min-height:22px;
-    min-width:20px;
     transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border:1px solid;
     border-radius:3px;
@@ -1331,8 +1326,6 @@ combobox button {
     text-shadow: none;
 }
 combobox button:hover {
-    min-height:22px;
-    min-width:20px;
     transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border:1px solid;
     border-radius:3px;
@@ -1346,8 +1339,6 @@ combobox button:hover {
     text-shadow: none;
 }
 combobox button:disabled {
-    min-height:22px;
-    min-width:20px;
     transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border:1px solid;
     border-radius:3px;
@@ -1362,8 +1353,6 @@ combobox button:disabled {
 }
 combobox button:active,
 button:checked {
-    min-height:22px;
-    min-width:20px;
     transition:all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border:1px solid;
     border-radius:3px;
@@ -1390,6 +1379,14 @@ combobox button.suggested-action:not(:disabled):hover {
     border-image: none;
     box-shadow: none;
     text-shadow: none;
+}
+combobox button,
+combobox button:active,
+combobox button:checked,
+combobox button:disabled,
+combobox button:hover {
+    min-height:22px;
+    min-width:20px;
 }
 /**********/
 /* TROUGH */
