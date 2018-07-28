@@ -1580,9 +1580,9 @@ filechooser actionbar {
     border-image: none;
     text-shadow: none;
     transition: none;
-    border: 1;
     box-shadow: none;
+    border: 1;
 }
 decoration {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.12);
 }
