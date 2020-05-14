@@ -993,8 +993,8 @@ toolbutton > button,
 toolbutton > button:hover,
 toolbutton > button:checked,
 toolbutton > button:checked:hover {
-    min-height:21px;
-    min-width:21px;
+    min-height:28px;
+    min-width:28px;
 }
 /**************/
 /* HEADER BAR */
